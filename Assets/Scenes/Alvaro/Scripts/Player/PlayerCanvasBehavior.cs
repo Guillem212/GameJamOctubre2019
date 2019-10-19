@@ -7,7 +7,16 @@ public class PlayerCanvasBehavior : MonoBehaviour
 {
     [SerializeField] GameObject AButton;
 
-    void ShowAButtonOnCanvas(bool state)
+    private void Start()
+    {
+        AButton.SetActive(false);
+    }
+    private void Update()
+    {
+        this.transform.LookAt(Camera.main.transform.position, Vector3.up);
+    }
+
+    public void ShowAButtonOnCanvas(bool state)
     {
         AButton.SetActive(state);
     }

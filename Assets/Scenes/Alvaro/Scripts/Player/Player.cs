@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     {
         spawnPoint = newSpawn;
     }*/
+
+
     public void GoToSpawn()
     {
         transform.position = spawnPoint;
@@ -23,5 +25,10 @@ public class Player : MonoBehaviour
         GameObject initialSpawn = GameObject.Find(toSearch);
         spawnPoint = initialSpawn.transform.position;
         GoToSpawn();
+    }
+
+    public string GetPlayerId()
+    {
+        return playerID.ToString();
     }
 }

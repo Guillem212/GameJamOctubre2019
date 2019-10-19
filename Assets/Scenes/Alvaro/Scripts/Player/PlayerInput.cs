@@ -17,7 +17,6 @@ namespace GameJamOctubre.Inputs
             if (Input.GetAxis("Horizontal" + index) < -0.5f || Input.GetAxis("Horizontal" + index) > 0.5f)
             {
                 movementAxis.x = (Input.GetAxis("Horizontal" + index));
-
             }
             if (Input.GetAxis("Vertical" + index) < -0.5f || Input.GetAxis("Vertical" + index) > 0.5f)
             {
