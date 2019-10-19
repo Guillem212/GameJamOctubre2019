@@ -13,6 +13,7 @@ public class PlayerCanvasBehavior : MonoBehaviour
     {
         AButton.SetActive(false);        
     }
+    
     private void Update()
     {        
         /*targetPos = Camera.main.transform.position;

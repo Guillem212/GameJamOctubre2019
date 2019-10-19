@@ -11,7 +11,7 @@ public class GrabTrigger : MonoBehaviour
     void Start()
     {
         collider = GetComponent<BoxCollider>();
-        player = this.GetComponentInParent<PlayerInteraction>();
+        player = GetComponentInParent<PlayerInteraction>();
     }    
     
     private void OnTriggerExit(Collider other)
