@@ -7,7 +7,7 @@ namespace GameJamOctubre.Inputs
     public class Movement : MonoBehaviour
     {
         public string ID;
-        private float speed = 2f;
+        [SerializeField] private float speed = 2f;
         PlayerInput inputs;
         // Start is called before the first frame update
         void Start()
