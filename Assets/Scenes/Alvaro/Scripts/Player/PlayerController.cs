@@ -17,12 +17,12 @@ namespace GameJamOctubre.Inputs
 
         [Header("Inputs")]
         public string m_VerticalAxis = "Vertical";
-        public string m_HorizontalAxis = "Horizontal";        
+        public string m_HorizontalAxis = "Horizontal";
 
         [Header("Control Variable")]
-        [SerializeField] float m_MoveSpeed;                
-        [SerializeField] float m_RotateSpeed;
-        [SerializeField] float m_GravityFactor;
+        [SerializeField] float m_MoveSpeed = 1f;                
+        [SerializeField] float m_RotateSpeed = 10f;
+        [SerializeField] float m_GravityFactor = 2f;
 
 
         void Start()
@@ -37,7 +37,7 @@ namespace GameJamOctubre.Inputs
         {            
             //print(m_PlayerController.isGrounded);
             m_MoveDirection = new Vector3();
-            if (inputs.GetMovementAxis(ID) != Vector2.zero) //si nos meneamos de alguna forma
+            if (inputs.GetMovementAxis(ID) != Vector2.zero) //if there is some move
             {
                 RotatePlayerModel();
                 m_MoveDirection = this.transform.forward; 
@@ -50,7 +50,7 @@ namespace GameJamOctubre.Inputs
             {
                 m_MoveDirection.y = -m_GravityFactor;
             }            
-            m_PlayerController.Move(m_MoveDirection * Time.deltaTime);
+            m_PlayerController.Move(m_MoveDirection * Time.deltaTime * m_MoveSpeed);
         }
 
         private void RotatePlayerModel()
@@ -61,16 +61,5 @@ namespace GameJamOctubre.Inputs
             Quaternion newRotation = Quaternion.LookRotation(direction); 
             m_PlayerModel.transform.rotation = Quaternion.Slerp(m_PlayerModel.transform.rotation, newRotation, m_RotateSpeed * Time.deltaTime); 
         }
-
-        bool CheckGrounded()
-        {
-            //OnDrawGizmosSelected();
-            RaycastHit hit;
-            if (Physics.SphereCast(transform.position, m_PlayerController.height, -transform.up, out hit, 10, 9))
-            {                
-                return true;
-            }
-            return false;
-        }        
     }
 }

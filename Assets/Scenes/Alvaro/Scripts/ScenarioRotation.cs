@@ -7,7 +7,7 @@ public class ScenarioRotation : MonoBehaviour
 {
     PlayerInput inputs;
     [Header("Control Variable")]
-    [SerializeField] bool canInteract;
+    [SerializeField] bool canInteract = true;
     [SerializeField] bool turnRequested;
 
     // Start is called before the first frame update

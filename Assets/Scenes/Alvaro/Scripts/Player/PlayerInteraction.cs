@@ -6,12 +6,13 @@ using GameJamOctubre.Inputs;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] GameObject holder;
-    [SerializeField] GameObject canvas;
+    public GameObject holder;
+    public GameObject canvas;
     PlayerCanvasBehavior playerCanvas;
     [Header("State")]
-    [SerializeField] bool canGrab = false;
+    public bool canGrab = false;
     public bool grabbingAnObject = false;
+    public float canvasHeight = 2f;
 
     string ID;
     PlayerInput inputs;
@@ -33,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerCanvas.transform.position = this.transform.position + Vector3.up * canvasHeight;
         if(inputs.Item(ID))
         {            
             if (canGrab && !grabbingAnObject && canGrab)

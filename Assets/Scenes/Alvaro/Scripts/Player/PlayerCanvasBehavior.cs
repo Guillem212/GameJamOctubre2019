@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class PlayerCanvasBehavior : MonoBehaviour
 {
-    [SerializeField] GameObject AButton;
+    public GameObject AButton;
+    Vector3 targetPos;    
+    public float damping = 10f;
 
     private void Start()
     {
-        AButton.SetActive(false);
+        AButton.SetActive(false);        
     }
     private void Update()
-    {
-        this.transform.LookAt(Camera.main.transform.position, Vector3.up);
+    {        
+        /*targetPos = Camera.main.transform.position;
+        Vector3 targetPostition = new Vector3(targetPos.x, transform.position.y, transform.position.z);
+        this.transform.LookAt(targetPostition);*/
     }
 
     public void ShowAButtonOnCanvas(bool state)
