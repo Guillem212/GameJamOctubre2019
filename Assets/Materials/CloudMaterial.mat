@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CloudMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 2e5504ac41b8c764ca1d62034e546630,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_2269F8E0: 2
+    - Vector1_35D72F7: 1
+    - Vector1_478E4B8A: 1
+    - Vector1_57A94A84: 10
+    - Vector1_7ABF1C7B: 0.2
+    - Vector1_82D2B665: 1
+    - Vector1_880ACEFB: 0.1
+    - Vector1_A6F400A4: 1
+    - Vector1_B95ED6: 100
+    - Vector1_CB1A06EA: 0.1
+    - Vector1_D9704597: 1
+    - Vector1_ECEF927E: 5
+    - Vector1_FA456421: 2
+    m_Colors:
+    - Color_AC326E5B: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F15E48FB: {r: 0, g: 0, b: 0, a: 0}
+    - Vector4_2B1DAA1C: {r: 1, g: 0, b: 0, a: 0}
+    - Vector4_A24CC7C: {r: 0, g: 1, b: -1, a: 1}
