@@ -8,7 +8,8 @@ namespace GameJamOctubre.Inputs
     public class PlayerController : MonoBehaviour
     {
         [HideInInspector]
-        public CharacterController m_PlayerController; 
+        public CharacterController m_PlayerController;
+        public PlayerInteraction m_PlayerInteraction;
         [SerializeField] Vector3 m_MoveDirection;        
         public GameObject m_PlayerModel; 
         PlayerInput inputs;
@@ -20,7 +21,8 @@ namespace GameJamOctubre.Inputs
         public string m_HorizontalAxis = "Horizontal";
 
         [Header("Control Variable")]
-        [SerializeField] float m_MoveSpeed = 1f;                
+        [SerializeField] float m_MoveSpeed = 1f;
+        [SerializeField] float m_GrabMoveSpeed = 0.7f;
         [SerializeField] float m_RotateSpeed = 10f;
         [SerializeField] float m_GravityFactor = 2f;
 
@@ -29,6 +31,7 @@ namespace GameJamOctubre.Inputs
         {
             ID = this.GetComponent<Player>().GetPlayerId();
             m_PlayerController = GetComponent<CharacterController>();
+            m_PlayerInteraction = GetComponent<PlayerInteraction>();
             inputs = new PlayerInput();
         }
 
@@ -39,7 +42,7 @@ namespace GameJamOctubre.Inputs
             m_MoveDirection = new Vector3();
             if (inputs.GetMovementAxis(ID) != Vector2.zero) //if there is some move
             {
-                RotatePlayerModel();
+                if(!m_PlayerInteraction.interacting) RotatePlayerModel();
                 m_MoveDirection = this.transform.forward; 
             }
             if (m_PlayerController.isGrounded) 
@@ -49,8 +52,9 @@ namespace GameJamOctubre.Inputs
             else
             {
                 m_MoveDirection.y = -m_GravityFactor;
-            }            
-            m_PlayerController.Move(m_MoveDirection * Time.deltaTime * m_MoveSpeed);
+            }
+            if (m_PlayerInteraction.grabbingAnObject && !m_PlayerInteraction.interacting) m_PlayerController.Move(m_MoveDirection * Time.deltaTime * m_GrabMoveSpeed);
+            else if (!m_PlayerInteraction.interacting) m_PlayerController.Move(m_MoveDirection * Time.deltaTime * m_MoveSpeed);
         }
 
         private void RotatePlayerModel()

@@ -8,15 +8,21 @@ public class PlayerInteraction : MonoBehaviour
     [Header("References")]
     public GameObject holder;
     public GameObject canvas;
+    public GameObject logPrefab;
     PlayerCanvasBehavior playerCanvas;
     [Header("State")]
     public bool canGrab = false;
+    public bool canInteract = false;
     public bool grabbingAnObject = false;
+    public bool interacting = false;
+    public float interactTime;
+    private float currentInteractTime = 0;
     public float canvasHeight = 2f;
 
     string ID;
     PlayerInput inputs;
     GameObject objectToGrab;
+    GameObject objectToInteract;
     GrabTrigger trigger;
     
     Transform grabHolder;
@@ -36,21 +42,20 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerCanvas.transform.position = this.transform.position + Vector3.up * canvasHeight;
         if(inputs.Item(ID))
-        {            
-            if (canGrab && !grabbingAnObject && canGrab)
-            {
-                CanGrab(false, null); //avoid enter here again
-                grabbingAnObject = true;
-                trigger.SetActiveTrigger(false); //deactivates detection trigger
-                objectToGrab.transform.position = grabHolder.position;
-                objectToGrab.transform.SetParent(grabHolder);
-            }
-            else if (grabbingAnObject)
-            {
-                grabbingAnObject = false;
-                trigger.SetActiveTrigger(true);
-                objectToGrab.transform.SetParent(null);
-            }
+        {
+            Item();
+        }
+        else if (inputs.Action(ID))
+        {
+            Action();
+        }
+        if (interacting)
+        {
+            currentInteractTime += Time.deltaTime;
+        }
+        if(currentInteractTime >= interactTime)
+        {
+            EndInteracting();
         }
     }
 
@@ -61,6 +66,68 @@ public class PlayerInteraction : MonoBehaviour
         if (state)
         {
             objectToGrab = obj;
+        }
+    }
+
+    public void CanInteract(bool state, GameObject obj)
+    {
+        playerCanvas.ShowBButtonOnCanvas(state); //shows B hint button
+        canInteract = state;
+        if (state)
+        {
+            objectToInteract = obj;
+        }
+    }
+
+    private void Item()
+    {
+        if (canGrab && !grabbingAnObject)
+        {
+            CanGrab(false, null); //avoid enter here again
+            grabbingAnObject = true;
+            objectToGrab.transform.position = grabHolder.position;
+            objectToGrab.transform.SetParent(grabHolder);
+        }
+        else if (grabbingAnObject)
+        {
+            grabbingAnObject = false;
+            trigger.SetActiveTrigger(true);
+            objectToGrab.transform.SetParent(null);
+        }
+    }
+
+    private void Action()
+    {
+        if(canInteract && !interacting)
+        {
+            CanInteract(false, null);
+            interacting = true;
+        }
+    }
+
+    private void EndInteracting()
+    {
+        currentInteractTime = 0;
+        interacting = false;
+        if (objectToInteract.CompareTag("Tree"))
+        {
+            grabbingAnObject = true;
+            GameObject log = Instantiate(logPrefab, grabHolder.position, Quaternion.identity);
+            log.transform.SetParent(grabHolder);
+            Tree tree = objectToInteract.gameObject.GetComponent<Tree>();
+            tree.Fall();
+            objectToGrab = log;
+            objectToInteract = null;
+        }
+
+        if (objectToInteract.CompareTag("Buildable"))
+        {
+            Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
+            buildable.Build();
+            Destroy(objectToGrab);
+            objectToGrab = null;
+            objectToInteract = null;
+            grabbingAnObject = false;
         }
     }
 }
