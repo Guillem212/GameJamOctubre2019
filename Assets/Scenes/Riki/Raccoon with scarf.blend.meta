@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 81091cc9b7867b449b35bfb72b4f43ab
+guid: d85bf33055313bc43af43fd64586944f
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: dad90ed38c783914f8adc4516e405f6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hands
+    second: {fileID: 2100000, guid: dccf88b98e2ba7d4bb30163ae540953f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Raccoon_Material
+    second: {fileID: 2100000, guid: 2ad0af0d1d082ef4baa5fccd550c3426, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scarf Blue
+    second: {fileID: 2100000, guid: 1c23526d1b3139b4b9c19cf0a17aabf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tail
+    second: {fileID: 2100000, guid: 7ae2362a48391dc42aac5e3170d461f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
