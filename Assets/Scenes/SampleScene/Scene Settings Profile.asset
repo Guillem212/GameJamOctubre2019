@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b00527f85bb3346a4d2cb710971587, type: 3}
   m_Name: VolumetricFog
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   colorMode:
     m_OverrideState: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
     min: 0
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.13950866, g: 0.030838378, b: 0.31132078, a: 1}
+    m_Value: {r: 0.03457407, g: 0, b: 0.4716981, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 4
     min: 0
     max: 4
   stepCount:
@@ -246,8 +246,8 @@ MonoBehaviour:
     min: 2
     max: 32
   radius:
-    m_OverrideState: 0
-    m_Value: 4.94
+    m_OverrideState: 1
+    m_Value: 5
     min: 0.25
     max: 5
   fullResolution:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   spectralLut:
     m_OverrideState: 0

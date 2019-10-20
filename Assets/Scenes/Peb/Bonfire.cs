@@ -36,6 +36,6 @@ public class Bonfire : MonoBehaviour
             lights[i].intensity = fire / maxFire * maxLampIntensity;
         }
 
-        filler.fillAmount = fire / maxFire;
+        //filler.fillAmount = fire / maxFire;
     }
 }
