@@ -160,7 +160,7 @@ public class PlayerInteraction : MonoBehaviour
             objectRb.isKinematic = true;
             log.transform.SetParent(grabHolder);
             Tree tree = objectToInteract.gameObject.GetComponent<Tree>();
-            tree.Fall(this);
+            tree.Fall();
             objectToGrab = log;
             objectToInteract = null;
         }
