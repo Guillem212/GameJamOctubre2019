@@ -37,12 +37,13 @@ public class Tree : MonoBehaviour
         }
     }
 
-    public void Fall()
+    public void Fall(PlayerInteraction playerInteraction)
     {
         respawnTime = Random.Range(minRespawnTime, maxRespawnTime);
         isGrown = false;
         meshFilter.mesh = saplingMesh;
         this.gameObject.tag = "Untagged";
+        playerInteraction.CanInteract(false, null);
     }
 
     private void Grow()
