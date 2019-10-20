@@ -7,19 +7,22 @@ using GameJamOctubre.Inputs;
 
 public class ScenarioRotation : MonoBehaviour
 {
-    public 
+    public GameObject[] objectsToRotate;
     PlayerInput inputs;
     Animator anim;
     bool isMoving = false;
     public GameObject parentable;
 
     [Header("Control Variable")]
-    public bool canInteract = true;        
+    public bool canInteract = true;
+    public float canvasTurnSpeed = 20f;
+    public float cooldown = 3f;
+
     enum Turn { Player1Right, Player2Right, Player1Left, Player2Left, None};
     Turn requestedRotation = Turn.None;
 
     float rightCounter, leftCounter = 0f;
-    public float cooldown = 3f;    
+    float angle = 0f;
 
     //DEBUG
     /* 
@@ -51,6 +54,7 @@ public class ScenarioRotation : MonoBehaviour
         lc.GetComponent<Text>().text = "LC " + leftCounter;
         actual.GetComponent<Text>().text = "ACTUAl " + requestedRotation;*/
         //DEBUG
+                
 
         if (leftCounter > 0f)
         {
@@ -185,23 +189,34 @@ public class ScenarioRotation : MonoBehaviour
 
     }
     
-    IEnumerator RequestTurn(int turn)
-    {
-        print(turn);
+    IEnumerator RequestTurn(int turn) //1 or 2
+    {        
         canInteract = false;
-        isMoving = true;        
-        if (turn == 1)
-        {
-            anim.SetTrigger("RightRotation"); //set parent
+        isMoving = true;
+        
+        if (turn == 1) { anim.SetTrigger("RightRotation");
+            foreach (GameObject i in objectsToRotate)
+            {                
+                i.transform.rotation = Quaternion.AngleAxis(90, i.transform.up);
+                print(i.transform.rotation.eulerAngles.y);
+            }
         }
-        else
-            anim.SetTrigger("LeftRotation");
+        else { anim.SetTrigger("LeftRotation");
+            foreach (GameObject i in objectsToRotate)
+            {
+                i.transform.rotation = Quaternion.AngleAxis(-90, i.transform.up);
+                print(i.transform.rotation.eulerAngles.y);
+            }
+        }              
 
         anim.SetBool("IsMoving", true);
         yield return new WaitUntil(() => isMoving == false); //se llama a false cuando termina el animador
-        yield return new WaitForEndOfFrame();
+        //turn all canvas after rotation
+        
+        yield return new WaitForEndOfFrame();                
+
         anim.SetBool("IsMoving", false);
-        canInteract = true;                
+        canInteract = true;        
     }
 
     public void PlugElements()

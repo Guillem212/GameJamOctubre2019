@@ -782,7 +782,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.73
-  m_Radius: 0.41
+  m_Radius: 0.53
   m_SlopeLimit: 60
   m_StepOffset: 1.5
   m_SkinWidth: 0.08
@@ -822,8 +822,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0523286, y: 1.2679151, z: 1}
-  m_Center: {x: 0.017037591, y: 0.5130784, z: -4.954607e-16}
+  m_Size: {x: 1.1001672, y: 2.1088884, z: 1.1403302}
+  m_Center: {x: -0.006881158, y: 0.933565, z: 0.00011054675}
 --- !u!1 &6661282374157941855
 GameObject:
   m_ObjectHideFlags: 0
