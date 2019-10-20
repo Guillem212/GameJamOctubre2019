@@ -137,6 +137,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             CanInteract(false, null);
             interacting = true;
+            if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
+            {
+                objectToInteract.GetComponent<Animator>().SetTrigger("Chop");
+            }
         }
     }
 

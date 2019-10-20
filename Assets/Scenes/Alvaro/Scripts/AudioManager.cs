@@ -41,15 +41,14 @@ public class AudioManager : MonoBehaviour {
 			//s.source.outputAudioMixerGroup = audioMixerMaster; //to control volume
 		}
 			
-		Play ("SoftSoundtrack");
+		Play("SoftSoundtrack");
         Play("HardSoundtrack");                
     }
 
     private void Start()
-    {
-        print(sounds.Length);
-        //soft = sounds[0];
-        //hard = sounds[1];
+    {        
+        soft = sounds[0];
+        hard = sounds[1];
     }
 
     public void Play (string name)

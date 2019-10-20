@@ -42,12 +42,14 @@ public class Tree : MonoBehaviour
         respawnTime = Random.Range(minRespawnTime, maxRespawnTime);
         isGrown = false;
         meshFilter.mesh = saplingMesh;
+        this.gameObject.tag = "Untagged";
     }
 
     private void Grow()
     {
         meshFilter.mesh = meshes[Mathf.FloorToInt(Random.Range(0, meshes.Length - 0.001f))];
         isGrown = true;
+        this.gameObject.tag = "Tree";
     }
 
 }

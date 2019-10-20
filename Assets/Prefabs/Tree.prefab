@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4731860556388220164}
   - component: {fileID: 3078149879757948410}
   - component: {fileID: 3078149879757948411}
+  - component: {fileID: 4425997598552410260}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -114,3 +115,22 @@ MonoBehaviour:
   isGrown: 0
   minRespawnTime: 4
   maxRespawnTime: 8
+--- !u!95 &4425997598552410260
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455386800098740696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9528cf53e48e5b48a7e605950e448a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
