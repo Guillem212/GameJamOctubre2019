@@ -23,6 +23,10 @@ public class ScenarioRotation : MonoBehaviour
 
     float rightCounter, leftCounter = 0f;
     float angle = 0f;
+    
+    public GameObject leftArrow;
+    public GameObject rightArrow;
+    Animator arrowAnim;
 
     //DEBUG
     /* 
@@ -38,6 +42,8 @@ public class ScenarioRotation : MonoBehaviour
         inputs = new PlayerInput();
         anim = GetComponent<Animator>();
 
+        //arrowAnim = leftArrow.GetComponentInParent<Animator>();
+
         //DEBUG
         /* 
         rc = GameObject.Find("RightC");
@@ -49,24 +55,26 @@ public class ScenarioRotation : MonoBehaviour
     void Update()
     {
         //DEBUG
-        /* 
+        /*
         rc.GetComponent<Text>().text = "RC " + rightCounter;
         lc.GetComponent<Text>().text = "LC " + leftCounter;
         actual.GetComponent<Text>().text = "ACTUAl " + requestedRotation;*/
-        //DEBUG
-                
+        //DEBUG                        
+
+        leftArrow.SetActive(leftCounter > 0);
+        rightArrow.SetActive(rightCounter > 0);
 
         if (leftCounter > 0f)
         {
-            leftCounter -= Time.deltaTime;
+            leftCounter -= Time.deltaTime;            
         }        
         if (rightCounter > 0f)
         {
-            rightCounter -= Time.deltaTime;
+            rightCounter -= Time.deltaTime;            
         }
         if (leftCounter <= 0 && rightCounter <= 0)
         {
-            requestedRotation = Turn.None;
+            requestedRotation = Turn.None;            
         }
 
         if (canInteract) 
@@ -84,7 +92,7 @@ public class ScenarioRotation : MonoBehaviour
             if (requestedRotation == Turn.Player1Right) rightCounter = cooldown;
             //same player change rotation request
             else if (requestedRotation == Turn.Player1Left || requestedRotation == Turn.None)
-            {
+            {                
                 requestedRotation = Turn.Player1Right;
                 rightCounter = cooldown;
                 leftCounter = 0f;
