@@ -21,9 +21,11 @@ public class ScenarioRotation : MonoBehaviour
     public float cooldown = 3f;    
 
     //DEBUG
+    /* 
     GameObject rc;
     GameObject lc;
     GameObject actual;
+    */
     //DEBUG
 
     // Start is called before the first frame update
@@ -33,18 +35,20 @@ public class ScenarioRotation : MonoBehaviour
         anim = GetComponent<Animator>();
 
         //DEBUG
+        /* 
         rc = GameObject.Find("RightC");
         lc = GameObject.Find("LeftC");
-        actual = GameObject.Find("Actual");
+        actual = GameObject.Find("Actual");*/
     }
 
     // Update is called once per frame
     void Update()
     {
         //DEBUG
+        /* 
         rc.GetComponent<Text>().text = "RC " + rightCounter;
         lc.GetComponent<Text>().text = "LC " + leftCounter;
-        actual.GetComponent<Text>().text = "ACTUAl " + requestedRotation;
+        actual.GetComponent<Text>().text = "ACTUAl " + requestedRotation;*/
         //DEBUG
 
         if (leftCounter > 0f)

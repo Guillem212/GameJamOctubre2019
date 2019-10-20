@@ -26,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
     GrabTrigger trigger;
     
     Transform grabHolder;
+    Transform parentableTransform;
     Animator anim;
 
     // Start is called before the first frame update
@@ -37,6 +38,8 @@ public class PlayerInteraction : MonoBehaviour
         playerCanvas = canvas.GetComponent<PlayerCanvasBehavior>();
         grabHolder = holder.transform;
         trigger = GetComponentInChildren<GrabTrigger>();
+
+        parentableTransform = GameObject.Find("ParentableObject").transform;
     }
 
     // Update is called once per frame
@@ -97,7 +100,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             grabbingAnObject = false;
             trigger.SetActiveTrigger(true);
-            objectToGrab.transform.SetParent(null);
+            objectToGrab.transform.SetParent(parentableTransform);
         }
     }
 
