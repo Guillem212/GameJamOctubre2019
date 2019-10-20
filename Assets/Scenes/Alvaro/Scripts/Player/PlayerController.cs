@@ -26,9 +26,12 @@ namespace GameJamOctubre.Inputs
         [SerializeField] float m_RotateSpeed = 10f;
         [SerializeField] float m_GravityFactor = 2f;
 
+        Animator anim;
+
 
         void Start()
         {
+            anim = GetComponentInChildren<Animator>();
             ID = this.GetComponent<Player>().GetPlayerId();
             m_PlayerController = GetComponent<CharacterController>();
             m_PlayerInteraction = GetComponent<PlayerInteraction>();
@@ -43,7 +46,12 @@ namespace GameJamOctubre.Inputs
             if (inputs.GetMovementAxis(ID) != Vector2.zero) //if there is some move
             {
                 if(!m_PlayerInteraction.interacting) RotatePlayerModel();
-                m_MoveDirection = this.transform.forward; 
+                m_MoveDirection = this.transform.forward;
+                anim.SetBool("moving", true);
+            }
+            else
+            {
+                anim.SetBool("moving", false);
             }
             if (m_PlayerController.isGrounded) 
             {

@@ -26,10 +26,12 @@ public class PlayerInteraction : MonoBehaviour
     GrabTrigger trigger;
     
     Transform grabHolder;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         inputs = new PlayerInput();
         ID = GetComponent<Player>().GetPlayerId();
         playerCanvas = canvas.GetComponent<PlayerCanvasBehavior>();
@@ -40,6 +42,9 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("chopping", interacting);
+        anim.SetBool("grabbing", grabbingAnObject);
+
         playerCanvas.transform.position = this.transform.position + Vector3.up * canvasHeight;
         if(inputs.Item(ID))
         {
