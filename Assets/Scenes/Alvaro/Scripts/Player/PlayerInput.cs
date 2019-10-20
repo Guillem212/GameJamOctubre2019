@@ -93,6 +93,28 @@ namespace GameJamOctubre.Inputs
             //Debug.Log(Input.GetButtonDown("Item" + index));
             return (Input.GetButtonDown("Item" + index));
         }
+
+        /// <summary>
+        /// Pause menu
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool Pause(string index)
+        {
+            //Debug.Log(Input.GetButtonDown("Item" + index));
+            return (Input.GetButtonDown("Pause" + index));
+        }
+
+        /// <summary>
+        /// Just cuaks, but in raccoon dialect
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool Cuak(string index)
+        {
+            //Debug.Log(Input.GetButtonDown("Item" + index));
+            return (Input.GetButtonDown("Cuak" + index));
+        }
     }
 }
 

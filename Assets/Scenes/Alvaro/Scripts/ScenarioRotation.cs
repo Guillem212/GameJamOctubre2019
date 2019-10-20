@@ -190,7 +190,9 @@ public class ScenarioRotation : MonoBehaviour
     }
     
     IEnumerator RequestTurn(int turn) //1 or 2
-    {        
+    {
+        FindObjectOfType<AudioManager>().Play("CameraRotation");
+
         canInteract = false;
         isMoving = true;
         

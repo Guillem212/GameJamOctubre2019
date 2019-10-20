@@ -66,6 +66,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             EndInteracting();
         }
+
+        if (inputs.Cuak(ID))
+        {
+            FindObjectOfType<AudioManager>().Play("Cuak");            
+        }
     }
 
     public void CanGrab(bool state, GameObject obj)
@@ -93,6 +98,8 @@ public class PlayerInteraction : MonoBehaviour
         Rigidbody objectRb = objectToGrab.GetComponent<Rigidbody>();
         if (canGrab && !grabbingAnObject)//grab
         {
+            FindObjectOfType<AudioManager>().Play("Grab");            
+
             CanGrab(false, null); //avoid enter here again
             grabbingAnObject = true;
             objectToGrab.transform.position = grabHolder.position;
@@ -110,6 +117,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (grabbingAnObject)//drop
         {
+            FindObjectOfType<AudioManager>().Play("Drop");            
+
             grabbingAnObject = false;
             trigger.SetActiveTrigger(true);
             objectRb.useGravity = true;
@@ -137,6 +146,9 @@ public class PlayerInteraction : MonoBehaviour
         interacting = false;
         if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
         {
+            //FindObjectOfType<AudioManager>().Play("Chop");
+            FindObjectOfType<AudioManager>().PlaySoundWithRandomPitch(2); //CHOP
+
             grabbingAnObject = true;
             GameObject log = Instantiate(logPrefab, grabHolder.position, grabHolder.rotation);
             Rigidbody objectRb = log.GetComponent<Rigidbody>();
@@ -151,6 +163,8 @@ public class PlayerInteraction : MonoBehaviour
 
         if (objectToInteract != null && objectToInteract.CompareTag("Buildable"))
         {
+            FindObjectOfType<AudioManager>().Play("Build");
+
             Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
             buildable.Build();
             Destroy(objectToGrab);
