@@ -4803,7 +4803,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -9840,6 +9840,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957045, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957045, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca0f1aec77bb8d2498cfc844dd584780, type: 2}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime0
@@ -9850,11 +9880,6 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.atime0
       value: 11951
       objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957045, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ca0f1aec77bb8d2498cfc844dd584780, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efe2427e999c4469838959347db061, type: 3}
 --- !u!1001 &2171448901182132576
@@ -10026,6 +10051,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: bd6b61594f5721e4da6eb57a202c7f6b,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: bd6b61594f5721e4da6eb57a202c7f6b,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e79a97df638be14988a4580f2b2f88b, type: 2}
@@ -10119,6 +10149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: bd6b61594f5721e4da6eb57a202c7f6b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: bd6b61594f5721e4da6eb57a202c7f6b,
         type: 3}

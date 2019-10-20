@@ -811,6 +811,7 @@ MonoBehaviour:
   m_GrabMoveSpeed: 4
   m_RotateSpeed: 10
   m_GravityFactor: 2
+  ps: {fileID: 0}
 --- !u!65 &7324098880045235694
 BoxCollider:
   m_ObjectHideFlags: 0

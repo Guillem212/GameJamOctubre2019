@@ -52,10 +52,16 @@ namespace GameJamOctubre.Inputs
                 if(!m_PlayerInteraction.interacting) RotatePlayerModel();
                 m_MoveDirection = this.transform.forward;
                 anim.SetBool("moving", true);
+
+                if(!ps.isPlaying)
+                    ps.Play();
             }
             else
             {
                 anim.SetBool("moving", false);
+
+                if(ps.isPlaying)
+                    ps.Stop();
             }
             if (m_PlayerController.isGrounded) 
             {
