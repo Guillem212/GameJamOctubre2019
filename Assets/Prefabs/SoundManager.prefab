@@ -45,13 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: SoftSoundtrack
-    clip: {fileID: 8300000, guid: 5d2fd87dc4152d748b95ffa31a9bd65e, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: 8e3977cbff2ad2543882af3c862d6169, type: 3}
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: HardSoundtrack
-    clip: {fileID: 8300000, guid: 5d2fd87dc4152d748b95ffa31a9bd65e, type: 3}
+    clip: {fileID: 8300000, guid: 3757552f5544b804b87e94d0dadf0d2d, type: 3}
     volume: 0
     pitch: 1
     loop: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CameraRotation
     clip: {fileID: 8300000, guid: 3fa13ed14a97d784fb1ff6e253cf50dc, type: 3}
-    volume: 0.7
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -8,6 +8,7 @@ public class Bonfire : MonoBehaviour
     public float fire;
     public float maxFire;
     public float extinguishFrequency;
+    public GameObject emissive;
 
     public Light[] lights;
 
@@ -35,7 +36,16 @@ public class Bonfire : MonoBehaviour
         {
             lights[i].intensity = fire / maxFire * maxLampIntensity;
         }
+        emissive.transform.localScale = Vector3.one * fire / maxFire;
+        filler.fillAmount = fire / maxFire * maxFire;
+    }
 
-        //filler.fillAmount = fire / maxFire;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wood"))
+        {
+            Feed();
+            Destroy(collision.gameObject);
+        }
     }
 }
