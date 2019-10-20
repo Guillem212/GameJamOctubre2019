@@ -18,6 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     public float interactTime;
     private float currentInteractTime = 0;
     public float canvasHeight = 2f;
+    public float throwForce = 20f;
 
     string ID;
     PlayerInput inputs;
@@ -89,18 +90,35 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Item()
     {
-        if (canGrab && !grabbingAnObject)
+        Rigidbody objectRb = objectToGrab.GetComponent<Rigidbody>();
+        if (canGrab && !grabbingAnObject)//grab
         {
             CanGrab(false, null); //avoid enter here again
             grabbingAnObject = true;
             objectToGrab.transform.position = grabHolder.position;
-            objectToGrab.transform.SetParent(grabHolder);
+            objectToGrab.transform.rotation = grabHolder.rotation;
+            //player already has the same object -> told him to drop it
+            if (objectToGrab.transform.parent != parentableTransform)
+            {
+                string other = ID == "1" ? "2" : "1";
+                GameObject.Find("Player" + other).GetComponent<PlayerInteraction>().Item();
+            }
+            objectRb.useGravity = false;
+            objectRb.isKinematic = true;
+            objectToGrab.transform.SetParent(grabHolder);            
+            
         }
-        else if (grabbingAnObject)
+        else if (grabbingAnObject)//drop
         {
             grabbingAnObject = false;
             trigger.SetActiveTrigger(true);
+            objectRb.useGravity = true;
+            objectRb.isKinematic = false;
             objectToGrab.transform.SetParent(parentableTransform);
+            if (anim.GetBool("moving"))
+            {
+                objectRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+            }
         }
     }
 

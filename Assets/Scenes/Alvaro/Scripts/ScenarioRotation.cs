@@ -7,6 +7,7 @@ using GameJamOctubre.Inputs;
 
 public class ScenarioRotation : MonoBehaviour
 {
+    public 
     PlayerInput inputs;
     Animator anim;
     bool isMoving = false;
