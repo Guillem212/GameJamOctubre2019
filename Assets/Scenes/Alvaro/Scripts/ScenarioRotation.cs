@@ -199,14 +199,14 @@ public class ScenarioRotation : MonoBehaviour
         if (turn == 1) { anim.SetTrigger("RightRotation");
             foreach (GameObject i in objectsToRotate)
             {                
-                i.transform.rotation = Quaternion.AngleAxis(90, i.transform.up);
+                i.transform.rotation = Quaternion.AngleAxis(-90, i.transform.up);
                 print(i.transform.rotation.eulerAngles.y);
             }
         }
         else { anim.SetTrigger("LeftRotation");
             foreach (GameObject i in objectsToRotate)
             {
-                i.transform.rotation = Quaternion.AngleAxis(-90, i.transform.up);
+                i.transform.rotation = Quaternion.AngleAxis(90, i.transform.up);
                 print(i.transform.rotation.eulerAngles.y);
             }
         }              
