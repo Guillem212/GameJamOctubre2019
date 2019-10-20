@@ -74,6 +74,10 @@ public class Bonfire : MonoBehaviour
             Feed();
             Destroy(collision.gameObject);
         }
+        PlayerInteraction player1 = GameObject.Find("Player1").GetComponent<PlayerInteraction>();
+        PlayerInteraction player2 = GameObject.Find("Player2").GetComponent<PlayerInteraction>();
+        player1.CanGrab(false, null);
+        player2.CanGrab(false, null);
     }
 
     private void OnTriggerStay(Collider other)
