@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class PlayerCanvasBehavior : MonoBehaviour
 {
     public GameObject AButton;
-    public GameObject BButton;
+    public GameObject XButton;
     Vector3 targetPos;    
     public float damping = 10f;
 
     private void Start()
     {
         AButton.SetActive(false);
-        BButton.SetActive(false);
+        XButton.SetActive(false);
     }
     
     private void Update()
@@ -28,8 +28,8 @@ public class PlayerCanvasBehavior : MonoBehaviour
         AButton.SetActive(state);
     }
 
-    public void ShowBButtonOnCanvas(bool state)
+    public void ShowXButtonOnCanvas(bool state)
     {
-        BButton.SetActive(state);
+        XButton.SetActive(state);
     }
 }

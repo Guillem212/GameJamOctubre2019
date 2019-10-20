@@ -76,7 +76,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void CanInteract(bool state, GameObject obj)
     {
-        playerCanvas.ShowBButtonOnCanvas(state); //shows B hint button
+        playerCanvas.ShowXButtonOnCanvas(state); //shows B hint button
         canInteract = state;
         if (state)
         {
@@ -114,7 +114,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         currentInteractTime = 0;
         interacting = false;
-        if (objectToInteract.CompareTag("Tree"))
+        if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
         {
             grabbingAnObject = true;
             GameObject log = Instantiate(logPrefab, grabHolder.position, Quaternion.identity);
@@ -125,7 +125,7 @@ public class PlayerInteraction : MonoBehaviour
             objectToInteract = null;
         }
 
-        if (objectToInteract.CompareTag("Buildable"))
+        if (objectToInteract != null && objectToInteract.CompareTag("Buildable"))
         {
             Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
             buildable.Build();
@@ -133,6 +133,8 @@ public class PlayerInteraction : MonoBehaviour
             objectToGrab = null;
             objectToInteract = null;
             grabbingAnObject = false;
+            playerCanvas.ShowXButtonOnCanvas(false);
+
         }
     }
 }

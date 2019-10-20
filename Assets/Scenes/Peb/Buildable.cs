@@ -49,7 +49,7 @@ public class Buildable : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         currentTime = -1;
         if (other.CompareTag("Player"))
