@@ -138,7 +138,10 @@ public class PlayerInteraction : MonoBehaviour
         if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
         {
             grabbingAnObject = true;
-            GameObject log = Instantiate(logPrefab, grabHolder.position, Quaternion.identity);
+            GameObject log = Instantiate(logPrefab, grabHolder.position, grabHolder.rotation);
+            Rigidbody objectRb = log.GetComponent<Rigidbody>();
+            objectRb.useGravity = false;
+            objectRb.isKinematic = true;
             log.transform.SetParent(grabHolder);
             Tree tree = objectToInteract.gameObject.GetComponent<Tree>();
             tree.Fall();

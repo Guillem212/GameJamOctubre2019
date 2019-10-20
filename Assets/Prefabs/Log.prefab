@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1857381374800925482}
   - component: {fileID: 8276355660713012396}
   - component: {fileID: 8296172668872793639}
+  - component: {fileID: 8296172668872793640}
   m_Layer: 0
   m_Name: Log
   m_TagString: Wood
@@ -88,8 +89,8 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142541278871922678}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -108,5 +109,18 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &8296172668872793640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142541278871922678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0015804874, y: 0.011251203, z: 0.0012639848}
+  m_Center: {x: 0.00018337018, y: -0.0006455432, z: 0.000314028}

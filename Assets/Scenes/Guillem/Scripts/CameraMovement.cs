@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour
         camera.orthographicSize = targetSize;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Move ();
         Zoom ();
