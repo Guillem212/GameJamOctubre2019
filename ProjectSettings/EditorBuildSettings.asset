@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleMenu.unity
+    guid: fe2a620952c3ef24391be54a2068a46d
+  - enabled: 1
+    path: Assets/Scenes/Guillem/LevelTestPLAYABLEGuillem.unity
+    guid: 7523dee3a5a312146a0aa5b2a387874e
   m_configObjects: {}
