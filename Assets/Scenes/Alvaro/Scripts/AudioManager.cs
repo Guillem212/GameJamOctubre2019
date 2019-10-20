@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour {
 	public static AudioManager instance;
     Sound soft;
     Sound hard;
+    Sound bonfire;
     [Range(0.5f,1f)]
     public float minPitchRange = 0.85f;
     [Range(1, 1.5f)]
@@ -42,13 +43,15 @@ public class AudioManager : MonoBehaviour {
 		}
 			
 		Play("SoftSoundtrack");
-        Play("HardSoundtrack");                
+        Play("HardSoundtrack");
+        Play("Bonfire");
     }
 
     private void Start()
     {        
         soft = sounds[0];
         hard = sounds[1];
+        bonfire = sounds[8];
     }
 
     public void Play (string name)
@@ -73,7 +76,8 @@ public class AudioManager : MonoBehaviour {
         //si es 1 -> soft volume = max / hard volume = 0;
         soft.source.volume = value;
         //si es 0 -> soft volume = 0 / hard volume = 1
-        hard.source.volume = -value;
+        hard.source.volume = 1 - value;
+        bonfire.source.volume = value * 0.8f;
     }
 			    
 

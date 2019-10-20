@@ -20,6 +20,7 @@ public class Bonfire : MonoBehaviour
 
 
     public float UITime;
+    public AudioManager audioManager;
     private float currentTime = -1;
 
     private void Awake()
@@ -38,7 +39,6 @@ public class Bonfire : MonoBehaviour
         {
             filler.enabled = background.enabled = false;
             currentTime = -1;
-
         }
         else if (currentTime >= UITime * 0.6)
         {
@@ -62,12 +62,15 @@ public class Bonfire : MonoBehaviour
         }
         emissive.transform.localScale = Vector3.one * fire / maxFire;
         filler.fillAmount = fire / maxFire;
+        audioManager.UpdateSoundtrack(Mathf.Clamp01(fire / maxFire));
+            
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wood"))
         {
+            FindObjectOfType<AudioManager>().Play("Lit");
             Feed();
             Destroy(collision.gameObject);
         }
