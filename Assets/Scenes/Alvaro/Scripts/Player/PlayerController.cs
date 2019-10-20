@@ -28,6 +28,8 @@ namespace GameJamOctubre.Inputs
 
         Animator anim;
 
+        [Header("Particles")]
+        public ParticleSystem ps;
 
         void Start()
         {
@@ -36,6 +38,8 @@ namespace GameJamOctubre.Inputs
             m_PlayerController = GetComponent<CharacterController>();
             m_PlayerInteraction = GetComponent<PlayerInteraction>();
             inputs = new PlayerInput();
+
+            ps = GetComponentInChildren<ParticleSystem>();
         }
 
 
