@@ -16,12 +16,36 @@ public class Bonfire : MonoBehaviour
     public float maxBonfireIntensity;
 
     public Image filler;
+    public Image background;
 
+
+    public float UITime;
+    private float currentTime = -1;
+
+    private void Awake()
+    {
+        filler.enabled = background.enabled = false;
+        currentTime = -1;
+    }
 
     void Update()
     {
         fire -= Time.deltaTime * extinguishFrequency;
         UpdateLights();
+
+        if (currentTime >= 0) currentTime += Time.deltaTime;
+        if (currentTime >= UITime)
+        {
+            filler.enabled = background.enabled = false;
+            currentTime = -1;
+
+        }
+        else if (currentTime >= UITime * 0.6)
+        {
+            filler.color = new Vector4(1, 1, 1, Mathf.Lerp(filler.color.a, 0, Time.deltaTime * 2 * UITime));
+            background.color = new Vector4(0, 0, 0, Mathf.Lerp(background.color.a, 0, Time.deltaTime * 4 * UITime));
+
+        }
     }
 
     public void Feed()
@@ -37,7 +61,7 @@ public class Bonfire : MonoBehaviour
             lights[i].intensity = fire / maxFire * maxLampIntensity;
         }
         emissive.transform.localScale = Vector3.one * fire / maxFire;
-        filler.fillAmount = fire / maxFire * maxFire;
+        filler.fillAmount = fire / maxFire;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,6 +70,26 @@ public class Bonfire : MonoBehaviour
         {
             Feed();
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        currentTime = -1;
+        if (other.CompareTag("Player"))
+        {
+            filler.enabled = true;
+            filler.color = Color.white;
+            background.enabled = true;
+            background.color = new Vector4(0, 0, 0, 0.5f);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            currentTime = 0;
         }
     }
 }
