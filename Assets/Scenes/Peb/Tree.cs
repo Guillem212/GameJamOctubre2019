@@ -43,6 +43,10 @@ public class Tree : MonoBehaviour
         isGrown = false;
         meshFilter.mesh = saplingMesh;
         this.gameObject.tag = "Sapling";
+        PlayerInteraction player1 = GameObject.Find("Player1").GetComponent<PlayerInteraction>();
+        PlayerInteraction player2 = GameObject.Find("Player2").GetComponent<PlayerInteraction>();
+        player1.CanInteract(false, null);
+        player2.CanInteract(false, null);
     }
 
     private void Grow()

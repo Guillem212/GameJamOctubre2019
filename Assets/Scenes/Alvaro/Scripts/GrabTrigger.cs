@@ -46,14 +46,6 @@ public class GrabTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Sapling"))
-        {
-            player.CanInteract(false, null);
-        }
-    }
-
     public void SetActiveTrigger(bool state)
     {
         collider.enabled = state;
