@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour
 {
 
-    public static bool endOfLevel = false;
+    private void Start() {
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            endOfLevel = true;
+            GameManager.endOfLevel = true;
         }
     }
 }

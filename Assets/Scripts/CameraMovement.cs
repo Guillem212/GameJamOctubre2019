@@ -16,6 +16,8 @@ public class CameraMovement : MonoBehaviour
     private Vector3 targetPosition;
     private float targetSize;
 
+    public int distanceToMap;
+
 
     private void Awake ()
     {
@@ -33,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        //Move ();
+        Move ();
         Zoom ();
     }
 
@@ -41,7 +43,7 @@ public class CameraMovement : MonoBehaviour
     private void Move ()
     {
         FindTargetPosition();
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref moveVelocity, dampTime);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition - transform.forward * distanceToMap, ref moveVelocity, dampTime);
     }
 
 

@@ -5,16 +5,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    private const int ONE = 1;
     private static GameManager instance;
+    public static bool endOfLevel;
     private static LevelManager levelInstance;
 
     private void LateUpdate()
     {
         if(Input.GetKeyDown(KeyCode.R))
-            ResetScene();
-        /*if(endOfLevel == true){
-            NextScene();
-        }*/
+            levelInstance.resetScene();
+        if(endOfLevel == true){
+            levelInstance.loadScene(levelInstance.actualScene + ONE);
+        }
     }
 
     void Awake()
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        levelInstance = new LevelManager();
+        levelInstance = GetComponent<LevelManager>();
     }
     
     public static void Pause()
@@ -42,18 +44,4 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
-    public void NextScene(){
-        
-    }
-
-    public void ResetScene(){
-
-    }
-
-    public void ReturnToMenu(){
-
-    }
-
-
 }

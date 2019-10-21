@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 5f274471c9588784ebed206d23848b77
+guid: 6a2d410981555b141a6b7b8d956c013f
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CRISTAL
-    second: {fileID: 2100000, guid: a939cee150f07ba45b6dbf5e8b051be3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
