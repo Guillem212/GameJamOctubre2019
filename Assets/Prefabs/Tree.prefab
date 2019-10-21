@@ -113,8 +113,8 @@ MonoBehaviour:
   saplingMesh: {fileID: -4817792638403972960, guid: 7fba21cca308d8b46901f151681bdde2,
     type: 3}
   isGrown: 0
-  minRespawnTime: 4
-  maxRespawnTime: 8
+  minRespawnTime: 240
+  maxRespawnTime: 360
 --- !u!95 &4425997598552410260
 Animator:
   serializedVersion: 3

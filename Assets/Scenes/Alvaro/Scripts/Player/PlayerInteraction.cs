@@ -95,7 +95,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Item()
     {
+
         Rigidbody objectRb = objectToGrab.GetComponent<Rigidbody>();
+
         if (canGrab && !grabbingAnObject)//grab
         {
             FindObjectOfType<AudioManager>().Play("Grab");            
