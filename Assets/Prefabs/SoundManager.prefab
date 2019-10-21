@@ -92,5 +92,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Bonfire
+    clip: {fileID: 8300000, guid: 0b3a89f026f0c5545902f040ac0b4b39, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Lit
+    clip: {fileID: 8300000, guid: 8a53e258253b0b3428578f33ae44b3bd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   minPitchRange: 0.85
   maxPitchRange: 1.22

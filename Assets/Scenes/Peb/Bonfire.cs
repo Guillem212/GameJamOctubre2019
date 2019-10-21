@@ -50,7 +50,7 @@ public class Bonfire : MonoBehaviour
 
     public void Feed()
     {
-        fire = Mathf.Max(fire + 1, maxFire);
+        fire +=2;
     }
 
     private void UpdateLights()

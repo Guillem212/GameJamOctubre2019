@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycleDuration: 60
-  targetSpeed: 3
+  targetSpeed: 5
   twilight: 3000
   night: 0
   target: {fileID: 0}

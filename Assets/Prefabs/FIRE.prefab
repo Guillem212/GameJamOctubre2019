@@ -5221,7 +5221,7 @@ Transform:
   m_GameObject: {fileID: 4330574486059088971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0033333343, y: 0.0033333353, z: 0.0033333348}
   m_Children:
   - {fileID: 2319464257594203546}
   - {fileID: 6582078526156323450}
@@ -5263,11 +5263,15 @@ MonoBehaviour:
   emissive: {fileID: 7282985220456544385}
   lights:
   - {fileID: 2171448900112033144}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   maxLampIntensity: 0
   maxBonfireIntensity: 4000
   filler: {fileID: 242678857}
   background: {fileID: 21141368}
   UITime: 3
+  audioManager: {fileID: 0}
 --- !u!135 &26105971
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10200,6 +10204,16 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: SizeModule.curve.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.23632812
       objectReference: {fileID: 0}
     - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
         type: 3}

@@ -45,7 +45,7 @@ public class Buildable : MonoBehaviour
         if (currentWood >= neededWood)
         {
             building.gameObject.SetActive(true);
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
