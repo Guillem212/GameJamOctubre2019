@@ -5,17 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
+
+    public static bool endOfLevel = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            endOfLevel = true;
         }
-    }
-
-    private void LateUpdate()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
