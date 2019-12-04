@@ -38,6 +38,22 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Horizontal2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: a
+    positiveButton: d
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Vertical1
     descriptiveName: 
     descriptiveNegativeName: 
@@ -67,6 +83,22 @@ InputManager:
     snap: 1
     invert: 0
     type: 2
+    axis: 1
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Vertical2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: s
+    positiveButton: w
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 1
+    type: 0
     axis: 1
     joyNum: 2
   - serializedVersion: 3
@@ -102,6 +134,22 @@ InputManager:
     axis: 9
     joyNum: 2
   - serializedVersion: 3
+    m_Name: RTrigger2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: e
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 9
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: LTrigger1
     descriptiveName: 
     descriptiveNegativeName: 
@@ -131,6 +179,22 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
+    axis: 8
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: LTrigger2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: q
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
     axis: 8
     joyNum: 2
   - serializedVersion: 3
@@ -220,7 +284,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 2 button 2
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: f
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -252,7 +316,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 2 button 0
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: space
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -316,7 +380,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 2 button 3
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: v
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
