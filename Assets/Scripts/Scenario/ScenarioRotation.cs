@@ -49,6 +49,12 @@ public class ScenarioRotation : MonoBehaviour
         rc = GameObject.Find("RightC");
         lc = GameObject.Find("LeftC");
         actual = GameObject.Find("Actual");*/
+
+        foreach (GameObject i in objectsToRotate)
+            {                                
+                i.transform.LookAt(Camera.main.transform.position);      
+                i.transform.Rotate(0,180,0);  
+            }
     }
 
     // Update is called once per frame
@@ -197,7 +203,7 @@ public class ScenarioRotation : MonoBehaviour
 
     }
     
-    IEnumerator RequestTurn(int turn) //1 or 2
+    IEnumerator RequestTurn(int turn) 
     {
         FindObjectOfType<AudioManager>().Play("CameraRotation");
 
@@ -205,23 +211,33 @@ public class ScenarioRotation : MonoBehaviour
         isMoving = true;
         
         if (turn == 1) { anim.SetTrigger("RightRotation");
-            foreach (GameObject i in objectsToRotate)
+            /*foreach (GameObject i in objectsToRotate)
             {                
-                i.transform.rotation = Quaternion.AngleAxis(-90, i.transform.up);
+                //i.transform.rotation = Quaternion.AngleAxis(-90, i.transform.up);
+                i.transform.LookAt(Camera.Main.transform.position);
                 print(i.transform.rotation.eulerAngles.y);
-            }
+            }*/
         }
         else { anim.SetTrigger("LeftRotation");
-            foreach (GameObject i in objectsToRotate)
+            /*foreach (GameObject i in objectsToRotate)
             {
                 i.transform.rotation = Quaternion.AngleAxis(90, i.transform.up);
                 print(i.transform.rotation.eulerAngles.y);
-            }
+            }*/
         }              
 
         anim.SetBool("IsMoving", true);
         yield return new WaitUntil(() => isMoving == false); //se llama a false cuando termina el animador
         //turn all canvas after rotation
+        foreach (GameObject i in objectsToRotate)
+            {                                
+                i.transform.LookAt(Camera.main.transform.position);
+                i.transform.Rotate(0,180,0);
+                //Vector3 relativePos = Camera.main.transform.position - i.transform.position;
+
+                //Quaternion rotation  = Quaternion.LookRotation(relativePos, Vector3.up);
+                //transform.rotation = rotation;
+            }
         
         yield return new WaitForEndOfFrame();                
 
@@ -232,13 +248,15 @@ public class ScenarioRotation : MonoBehaviour
     public void PlugElements()
     {
         //set parent
-        parentable.transform.SetParent(this.transform);
+        //parentable.transform.SetParent(this.transform);
+        Camera.main.transform.SetParent(this.transform);
     }
 
     public void UnPlugElements()
     {
         //quitar parent
-        parentable.transform.SetParent(null);
+        //parentable.transform.SetParent(null);
+        Camera.main.transform.SetParent(null);
         isMoving = false; //finaliza corrutina
     }
 }

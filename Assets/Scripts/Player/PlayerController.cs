@@ -31,6 +31,9 @@ namespace GameJamOctubre.Inputs
         [Header("Particles")]
         public ParticleSystem ps;
 
+
+        private Vector3 desiredMoveDirection;
+
         void Start()
         {
             anim = GetComponentInChildren<Animator>();
@@ -49,8 +52,24 @@ namespace GameJamOctubre.Inputs
             m_MoveDirection = new Vector3();
             if (inputs.GetMovementAxis(ID) != Vector2.zero) //if there is some move
             {
-                if(!m_PlayerInteraction.interacting) RotatePlayerModel();
-                m_MoveDirection = this.transform.forward;
+
+                Camera camera = Camera.main;
+                Vector3 forward = camera.transform.forward;
+                Vector3 right = camera.transform.right;
+
+                forward.y = 0f;
+                right.y = 0f;
+
+                //cambia las coordenadas a un sistema que podamos usar en el paso siguiente
+                forward.Normalize();
+                right.Normalize();
+
+                desiredMoveDirection = -forward * inputs.GetMovementAxis(ID).y + right * inputs.GetMovementAxis(ID).x;
+
+                m_MoveDirection = desiredMoveDirection;
+                if(!m_PlayerInteraction.interacting)
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), 0.4f); 
+
                 anim.SetBool("moving", true);
 
                 if(!ps.isPlaying)
@@ -75,13 +94,13 @@ namespace GameJamOctubre.Inputs
             else if (!m_PlayerInteraction.interacting) m_PlayerController.Move(m_MoveDirection * Time.deltaTime * m_MoveSpeed);
         }
 
-        private void RotatePlayerModel()
+        /*private void RotatePlayerModel()
         {
             Vector3 direction = new Vector3(inputs.GetMovementAxis(ID).x, 0f, 0f) + new Vector3(0f, 0f, -inputs.GetMovementAxis(ID).y);
             //print(direction);            
             Vector3 desiredPosition = new Vector3(m_MoveDirection.x, 0f, m_MoveDirection.z); 
             Quaternion newRotation = Quaternion.LookRotation(direction); 
             m_PlayerModel.transform.rotation = Quaternion.Slerp(m_PlayerModel.transform.rotation, newRotation, m_RotateSpeed * Time.deltaTime); 
-        }
+        }*/
     }
 }

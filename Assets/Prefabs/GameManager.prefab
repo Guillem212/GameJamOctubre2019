@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 1117202141030964854}
   - component: {fileID: 4699497721798528222}
   - component: {fileID: 7908948300218621491}
+  - component: {fileID: 2091214761}
   m_Layer: 5
   m_Name: LoadingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7302121012029419472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47,7 +48,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839941093469364801}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -100,6 +101,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &2091214761
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839941093469364801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2878d35af2010294f98e6bec02f3b8a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2557728043645133143
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +132,7 @@ GameObject:
   - component: {fileID: 7688437758291020351}
   - component: {fileID: 4891210524748361348}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1666c1b1b2fa26f40a9953dc0aa1162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!114 &4039165242528265747
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
@@ -106,8 +106,8 @@ MonoBehaviour:
     min: 0.25
     max: 5
   fullResolution:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0
   maximumRadiusInPixels:
     m_OverrideState: 0
     m_Value: 40
@@ -284,50 +284,7 @@ MonoBehaviour:
   - {fileID: 6732334418393881550}
   - {fileID: 671538233312247478}
   - {fileID: -5624522805173027129}
-  - {fileID: 425111018863776428}
   - {fileID: -2970562340222386917}
---- !u!114 &425111018863776428
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf384b154398e341b6b29969c078198, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  sampleCount:
-    m_OverrideState: 0
-    m_Value: 8
-    min: 2
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-  maximumVelocity:
-    m_OverrideState: 0
-    m_Value: 200
-    min: 0
-    max: 1500
-  minimumVelocity:
-    m_OverrideState: 0
-    m_Value: 2
-    min: 0
-    max: 64
-  cameraRotationVelocityClamp:
-    m_OverrideState: 0
-    m_Value: 0.03
-    min: 0
-    max: 0.2
-  depthComparisonExtent:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 20
 --- !u!114 &671538233312247478
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -347,7 +304,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.3
     min: 0
     max: 1
   response:
@@ -432,7 +389,7 @@ MonoBehaviour:
     max: 1
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 500
+    m_Value: 200
     min: 0
   mipFogMaxMip:
     m_OverrideState: 0

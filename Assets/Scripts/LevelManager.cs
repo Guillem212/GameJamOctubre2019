@@ -11,19 +11,21 @@ public class LevelManager : MonoBehaviour
 
     [Header("Loading Canvas"), SerializeField]
     private GameObject canvas;
+    private Animator canvasAnim;
 
     private void Start() {
         actualScene = SceneManager.GetActiveScene().buildIndex;
+        canvasAnim = canvas.GetComponent<Animator>();
     }
 
     public void loadScene(int index)
     {
-        canvas.GetComponent<Animator>().SetTrigger("StartLoading");
+        canvasAnim.SetTrigger("StartLoading");
         StartCoroutine(StartLoading(index));
     }
 
     public void resetScene(){
-        canvas.GetComponent<Animator>().SetTrigger("StartLoading");
+        canvasAnim.SetTrigger("StartLoading");
         StartCoroutine(StartLoading(SceneManager.GetActiveScene().buildIndex));
     }
 
@@ -32,11 +34,11 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.1f);
-        canvas.GetComponent<Animator>().SetTrigger("Load");
+        canvasAnim.SetTrigger("Load");
     }
 
     IEnumerator StartLoading(int index){
-        while(!canvas.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("StateEnd")){
+        while(!canvasAnim.GetCurrentAnimatorStateInfo(0).IsName("StateEnd")){
             yield return null;
         }
         asyncLoad = SceneManager.LoadSceneAsync(index);

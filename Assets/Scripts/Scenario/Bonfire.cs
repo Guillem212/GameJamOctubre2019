@@ -31,7 +31,8 @@ public class Bonfire : MonoBehaviour
 
     void Update()
     {
-        fire -= Time.deltaTime * extinguishFrequency;
+        if(fire > 0)
+            fire -= Time.deltaTime * extinguishFrequency;
         UpdateLights();
 
         if (currentTime >= 0) currentTime += Time.deltaTime;

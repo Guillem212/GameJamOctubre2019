@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
     public Transform[] targets;                  
 
     private new Camera camera;
+    public Camera cameraCanvas;
     private float zoomVelocity;
     private Vector3 moveVelocity;
 
@@ -31,6 +32,7 @@ public class CameraMovement : MonoBehaviour
 
         FindTargetSize();
         camera.orthographicSize = targetSize;
+        cameraCanvas.orthographicSize = camera.orthographicSize;
     }
 
     private void LateUpdate()
@@ -77,6 +79,7 @@ public class CameraMovement : MonoBehaviour
     {
         FindTargetSize();
         camera.orthographicSize = Mathf.SmoothDamp (camera.orthographicSize, targetSize, ref zoomVelocity, dampTime);
+        cameraCanvas.orthographicSize = camera.orthographicSize;
     }
 
 
