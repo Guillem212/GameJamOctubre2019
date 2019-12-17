@@ -6,26 +6,27 @@ public class TEST : MonoBehaviour
 {
     [Header("REFERENCIAS")]
     [SerializeField] GameObject hoguera;
-    [SerializeField] GameObject sol;
+    //[SerializeField] GameObject sol;
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
+    [SerializeField] GameObject colliders;
         
-    [SerializeField] private protected enum Items {ReplantarArboles, ConstruirTodo, RomperTodo};
-    [SerializeField] bool m_cicloSolar = true;
+    [SerializeField] private protected enum Items {ReplantarArboles, ConstruirTodo, RomperTodo};    
     [SerializeField] bool m_hogueraSeExtingue = true;
     [ContextMenuItem("Hoguera al maximo", "ReavivarHoguera")]
     [Range(0, 5)]
     [SerializeField] float m_frecuenciaDeExtincion;
+    [SerializeField] bool m_sinColliders = false;
 
     Bonfire m_hogueraScript;
-    Sun m_solScript;
+    //Sun m_solScript;
 
     // Start is called before the first frame update
     void Start()
     {
         m_hogueraScript = hoguera.GetComponent<Bonfire>();
         m_frecuenciaDeExtincion = m_hogueraScript.extinguishFrequency;
-        m_solScript = sol.GetComponent<Sun>();
+        //m_solScript = sol.GetComponent<Sun>();        
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class TEST : MonoBehaviour
     {
         if (!m_hogueraSeExtingue) { m_hogueraScript.extinguishFrequency = 0; }
         else { m_hogueraScript.extinguishFrequency = m_frecuenciaDeExtincion; }
-        m_solScript.enabled = m_cicloSolar;
+        colliders.SetActive(!m_sinColliders);        
     }
 
     void ReavivarHoguera()
