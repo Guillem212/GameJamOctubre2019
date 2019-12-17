@@ -22,27 +22,36 @@ public class GrabTrigger : MonoBehaviour
         }
         if (other.CompareTag("Tree"))
         {
-            player.CanInteract(false, null);
+            player.CanChop(false, null);
         }
         if (other.CompareTag("Buildable"))
         {
-            player.CanInteract(false, null);
+            player.CanBuild(false, null);
         }
     }
 
-    private void OnTriggerStay(Collider other) //con ontrigger enter petaba
+    private void OnTriggerStay(Collider other) 
     {        
         if (other.CompareTag("Wood"))
         {
-            if (!player.grabbingAnObject) player.CanGrab(true, other.gameObject);            
+            if (!player.grabbingAnObject) player.CanGrab(true, other.gameObject);        
+            else player.CanGrab(false, null);
         }
-        if (other.CompareTag("Tree"))
-        {
-            if (!player.grabbingAnObject) player.CanInteract(true, other.gameObject);
+        if (other.CompareTag("Tree")) //chequear el estado de tree, el otro jugador puede bloquearlo
+        {            
+            if (!player.grabbingAnObject && !other.GetComponentInParent<Tree>().locked) //and arbol no bloqueado
+                player.CanChop(true, other.gameObject);
+            else //frente a un arbol con una madera o lo está talando otro jugador
+            {
+                //ignorar arbol
+                player.CanChop(false, null);                
+            }
         }
         if (other.CompareTag("Buildable"))
         {
-            if (player.grabbingAnObject) player.CanInteract(true, other.gameObject);
+            if (player.grabbingAnObject) 
+                player.CanBuild(true, other.gameObject);
+            else player.CanBuild(false, null); //hay que llevar madera para construir
         }
     }
 

@@ -10,13 +10,17 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject canvas;
     public GameObject logPrefab;
     PlayerCanvasBehavior playerCanvas;
+    Rigidbody logRigidBody;
     [Header("State")]
-    public bool canGrab = false;
-    public bool canInteract = false;
+    public bool canGrab = false; //todo esto lo debe asignar el gamemanager al comienzo de cada nivel
+    public bool canChop = false;
+    public bool canBuild = false;
     public bool grabbingAnObject = false;
+
     public bool interacting = false;
     public float interactTime;
     private float currentInteractTime = 0;
+
     public float canvasHeight = 2f;
     public float throwForce = 20f;
 
@@ -45,12 +49,11 @@ public class PlayerInteraction : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        anim.SetBool("chopping", interacting);
+    {        
         anim.SetBool("grabbing", grabbingAnObject);
 
         playerCanvas.transform.position = this.transform.position + Vector3.up * canvasHeight;
-        if(inputs.Item(ID))
+        if(inputs.Item(ID)) //grab
         {
             Item();
         }
@@ -83,87 +86,108 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void CanInteract(bool state, GameObject obj)
+    public void CanChop(bool state, GameObject obj)
     {
-        playerCanvas.ShowXButtonOnCanvas(state); //shows B hint button
-        canInteract = state;
+        playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
+        canChop = state;
         if (state)
         {
             objectToInteract = obj;
         }
     }
 
-    private void Item()
+    public void CanBuild(bool state, GameObject obj)
     {
-
-        Rigidbody objectRb = objectToGrab.GetComponent<Rigidbody>();
-
-        if (canGrab && !grabbingAnObject)//grab
+        playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
+        canBuild = state;
+        if (state)
         {
-            FindObjectOfType<AudioManager>().Play("Grab");            
+            objectToInteract = obj;
+        }
+    }
 
-            CanGrab(false, null); //avoid enter here again
+    private void Item() //A BUTTON
+    {            
+        if (canGrab)//grab
+        {
+            logRigidBody = objectToGrab.GetComponent<Rigidbody>();
+            FindObjectOfType<AudioManager>().Play("Grab");            
+            CanGrab(false, null); //desactiva botón
             grabbingAnObject = true;
             objectToGrab.transform.position = grabHolder.position;
             objectToGrab.transform.rotation = grabHolder.rotation;
-            //player already has the same object -> told him to drop it
+            //robar tronco
             if (objectToGrab.transform.parent != parentableTransform)
             {
                 string other = ID == "1" ? "2" : "1";
                 GameObject.Find("Player" + other).GetComponent<PlayerInteraction>().Item();
             }
-            objectRb.useGravity = false;
-            objectRb.isKinematic = true;
+            logRigidBody.useGravity = false;
+            logRigidBody.isKinematic = true;
             objectToGrab.transform.SetParent(grabHolder);            
             
         }
-        else if (grabbingAnObject)//drop
+        else if (grabbingAnObject) //drop
         {
-            FindObjectOfType<AudioManager>().Play("Drop");            
+            FindObjectOfType<AudioManager>().Play("Drop");
+            logRigidBody = objectToGrab.GetComponent<Rigidbody>();
 
             grabbingAnObject = false;
             trigger.SetActiveTrigger(true);
-            objectRb.useGravity = true;
-            objectRb.isKinematic = false;
+            logRigidBody.useGravity = true;
+            logRigidBody.isKinematic = false;
             objectToGrab.transform.SetParent(parentableTransform);
             if (anim.GetBool("moving"))
             {
-                objectRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+                logRigidBody.AddForce(transform.forward * throwForce, ForceMode.Impulse);
             }
         }
     }
 
-    private void Action()
+    private void Action() //X BUTTON
     {
-        if(canInteract && !interacting)
+        if(canChop)
         {
-            CanInteract(false, null);
-            interacting = true;
-            if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
-            {
-                objectToInteract.GetComponent<Animator>().SetTrigger("Chop");
-            }
+            //CanChop(false, null); 
+            grabbingAnObject = true;
+            //bloquear arbol para el otro jugador
+            objectToInteract.GetComponentInParent<Tree>().locked = true;
+            interacting = true; //para el animador
+            objectToInteract.GetComponent<Animator>().SetTrigger("Chop");
+            anim.SetBool("chopping", true);
+        }
+        else if(canBuild)
+        {
+            interacting = true; //para el animador
+            Destroy(objectToGrab);
+            objectToGrab = null;
+            grabbingAnObject = false;            
+            //bloquear constructor            
+            //si es el ultimo tronco, animar la rampa
+            anim.SetBool("chopping", true);
+
         }
     }
 
     private void EndInteracting()
     {
+        anim.SetBool("chopping", false);
         currentInteractTime = 0;
         interacting = false;
         if (objectToInteract != null && objectToInteract.CompareTag("Tree"))
-        {
-            //FindObjectOfType<AudioManager>().Play("Chop");
-            FindObjectOfType<AudioManager>().PlaySoundWithRandomPitch(2); //CHOP
-
-            grabbingAnObject = true;
+        {            
+            //sonido
+            FindObjectOfType<AudioManager>().PlaySoundWithRandomPitch(2); //CHOP               
+            //cortar arbol
+            Tree tree = objectToInteract.gameObject.GetComponentInParent<Tree>();
+            tree.Fall();
+             //cogemos tronco
+            //grabbingAnObject = true;
             GameObject log = Instantiate(logPrefab, grabHolder.position, grabHolder.rotation);
             Rigidbody objectRb = log.GetComponent<Rigidbody>();
             objectRb.useGravity = false;
             objectRb.isKinematic = true;
-            log.transform.SetParent(grabHolder);
-            //print(objectToInteract.gameObject.name);
-            Tree tree = objectToInteract.gameObject.GetComponentInParent<Tree>();
-            tree.Fall();
+            log.transform.SetParent(grabHolder);        
             objectToGrab = log;
             objectToInteract = null;
         }
@@ -173,11 +197,8 @@ public class PlayerInteraction : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Build");
 
             Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
-            buildable.Build();
-            Destroy(objectToGrab);
-            objectToGrab = null;
+            buildable.Build();            
             objectToInteract = null;
-            grabbingAnObject = false;
             playerCanvas.ShowXButtonOnCanvas(false);
 
         }

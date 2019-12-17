@@ -8,7 +8,7 @@ public class Tree : MonoBehaviour
 
     Animator grownAnim, saplingAnim;
 
-
+    public bool locked = false;
 
 
     //public Mesh[] meshes;
@@ -73,12 +73,13 @@ public class Tree : MonoBehaviour
         //esto es cutre
         PlayerInteraction player1 = GameObject.Find("Player1").GetComponent<PlayerInteraction>();
         PlayerInteraction player2 = GameObject.Find("Player2").GetComponent<PlayerInteraction>();
-        player1.CanInteract(false, null);
-        player2.CanInteract(false, null);
+        //player1.CanInteract(false, null);
+        //player2.CanInteract(false, null);
     }
 
     private void Grow()
     {
+        this.locked = false;
         //meshFilter.mesh = meshes[Mathf.FloorToInt(Random.Range(0, meshes.Length - 0.001f))];
         isGrown = true;
         saplingHalfGrown = false;

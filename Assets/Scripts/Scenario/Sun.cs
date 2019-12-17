@@ -12,13 +12,14 @@ public class Sun : MonoBehaviour
     public float temperature;
     private float currentTime;
     private Light light;
+    public Vector3 initialTargetPos;
     // Start is called before the first frame update
     void Start()
     {
-
         light = GetComponent<Light>();
         light.colorTemperature = 12500f;
         transform.rotation = Quaternion.Euler(170, -30, 0);
+        initialTargetPos = target.transform.position;
     }
 
     // Update is called once per frame
