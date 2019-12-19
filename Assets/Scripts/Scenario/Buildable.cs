@@ -11,7 +11,7 @@ public class Buildable : MonoBehaviour
     public GameObject building;
     public float textTime;
     private Text text;
-    private float currentTime = -1;
+    private float currentTime = -1;    
 
     // Start is called before the first frame update
     void Start()

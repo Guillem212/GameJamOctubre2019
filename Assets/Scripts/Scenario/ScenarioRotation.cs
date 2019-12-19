@@ -28,6 +28,8 @@ public class ScenarioRotation : MonoBehaviour
     public GameObject rightArrow;
     Animator arrowAnim;
 
+    [HideInInspector] public bool onePlayerMode;
+
     //DEBUG
     /* 
     GameObject rc;
@@ -148,63 +150,81 @@ public class ScenarioRotation : MonoBehaviour
         //PLAYER 2
         else if (inputs.RBumper("2") || inputs.RTriggerAxis("2") > 0) //player 2 Right
         {
-            //print("2R");            
-            //update counter
-            if (requestedRotation == Turn.Player2Right) rightCounter = cooldown;
-            //same player change rotation request
-            else if (requestedRotation == Turn.Player2Left || requestedRotation == Turn.None)
+            if (onePlayerMode)
             {
-                requestedRotation = Turn.Player2Right;
-                rightCounter = cooldown;
-                leftCounter = 0f;
-            }
-            //conflict
-            else if (requestedRotation == Turn.Player1Left)
-            {                
-                requestedRotation = Turn.None;
-                rightCounter = 0f;
-                leftCounter = 0f;
-            }
-            //turn request
-            else if (requestedRotation == Turn.Player1Right)
-            {
-                //girate coño    
                 StartCoroutine(RequestTurn(1));
+                leftCounter = 0f;
                 rightCounter = 0f;
-                leftCounter = 0f;                
             }
+            else
+            {
+                //print("2R");            
+                //update counter
+                if (requestedRotation == Turn.Player2Right) rightCounter = cooldown;
+                //same player change rotation request
+                else if (requestedRotation == Turn.Player2Left || requestedRotation == Turn.None)
+                {
+                    requestedRotation = Turn.Player2Right;
+                    rightCounter = cooldown;
+                    leftCounter = 0f;
+                }
+                //conflict
+                else if (requestedRotation == Turn.Player1Left)
+                {
+                    requestedRotation = Turn.None;
+                    rightCounter = 0f;
+                    leftCounter = 0f;
+                }
+                //turn request
+                else if (requestedRotation == Turn.Player1Right || onePlayerMode)
+                {
+                    //girate coño    
+                    StartCoroutine(RequestTurn(1));
+                    rightCounter = 0f;
+                    leftCounter = 0f;
+                }
+            }            
         }
         else if (inputs.LBumper("2") || inputs.LTriggerAxis("2") > 0) //player 2 Left
         {
-            //print("2L");
-            //update counter
-            if (requestedRotation == Turn.Player2Left) leftCounter = cooldown;
-            //same player change rotation request
-            else if (requestedRotation == Turn.Player2Right || requestedRotation == Turn.None)
+            if (onePlayerMode)
             {
-                requestedRotation = Turn.Player2Left;
-                leftCounter = cooldown;
-                rightCounter = 0f;
-            }
-            else if (requestedRotation == Turn.Player1Right)
-            {
-                requestedRotation = Turn.None;
-                leftCounter = 0f;
-                rightCounter = 0f;
-            }
-            else if (requestedRotation == Turn.Player1Left)
-            {
-                //girate coño     
                 StartCoroutine(RequestTurn(2));
                 leftCounter = 0f;
-                rightCounter = 0f;                
+                rightCounter = 0f;
             }
+            else
+            {
+                //print("2L");
+                //update counter
+                if (requestedRotation == Turn.Player2Left) leftCounter = cooldown;
+                //same player change rotation request
+                else if (requestedRotation == Turn.Player2Right || requestedRotation == Turn.None)
+                {
+                    requestedRotation = Turn.Player2Left;
+                    leftCounter = cooldown;
+                    rightCounter = 0f;
+                }
+                else if (requestedRotation == Turn.Player1Right)
+                {
+                    requestedRotation = Turn.None;
+                    leftCounter = 0f;
+                    rightCounter = 0f;
+                }
+                else if (requestedRotation == Turn.Player1Left)
+                {
+                    //girate coño     
+                    StartCoroutine(RequestTurn(2));
+                    leftCounter = 0f;
+                    rightCounter = 0f;
+                }
+            }            
         }        
 
     }
     
     IEnumerator RequestTurn(int turn) 
-    {
+    {        
         FindObjectOfType<AudioManager>().Play("CameraRotation");
 
         canInteract = false;

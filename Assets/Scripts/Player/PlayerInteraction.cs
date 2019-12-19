@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     PlayerCanvasBehavior playerCanvas;
     Rigidbody logRigidBody;
     [Header("State")]
-    public bool canGrab = false; //todo esto lo debe asignar el gamemanager al comienzo de cada nivel
+    public bool canGrab = false; //todo esto lo debería asignar el gamemanager al comienzo de cada nivel
     public bool canChop = false;
     public bool canBuild = false;
     public bool grabbingAnObject = false;
@@ -78,6 +78,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void CanGrab(bool state, GameObject obj)
     {
+        //print("canGrab" + state + obj);
         playerCanvas.ShowAButtonOnCanvas(state); //shows A hint button
         canGrab = state;
         if (state)
@@ -88,6 +89,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void CanChop(bool state, GameObject obj)
     {
+        //print("canChop" + state + obj);
         playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
         canChop = state;
         if (state)
@@ -98,7 +100,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void CanBuild(bool state, GameObject obj)
     {
-        playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
+        //print("canBuild" + state + obj);
+        if (!canChop) playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
         canBuild = state;
         if (state)
         {
@@ -148,8 +151,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(canChop)
         {
-            //CanChop(false, null); 
-            grabbingAnObject = true;
+            //CanChop(false, null);             
             //bloquear arbol para el otro jugador
             objectToInteract.GetComponentInParent<Tree>().locked = true;
             interacting = true; //para el animador
@@ -181,8 +183,8 @@ public class PlayerInteraction : MonoBehaviour
             //cortar arbol
             Tree tree = objectToInteract.gameObject.GetComponentInParent<Tree>();
             tree.Fall();
-             //cogemos tronco
-            //grabbingAnObject = true;
+            //cogemos tronco
+            grabbingAnObject = true;
             GameObject log = Instantiate(logPrefab, grabHolder.position, grabHolder.rotation);
             Rigidbody objectRb = log.GetComponent<Rigidbody>();
             objectRb.useGravity = false;
