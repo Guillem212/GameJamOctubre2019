@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GameJamOctubre.Inputs;
 
 public class PlayerInteraction : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject canvas;
     public GameObject logPrefab;
     PlayerCanvasBehavior playerCanvas;
+
     Rigidbody logRigidBody;
     [Header("State")]
     public bool canGrab = false; //todo esto lo debería asignar el gamemanager al comienzo de cada nivel
@@ -40,7 +42,9 @@ public class PlayerInteraction : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         inputs = new PlayerInput();
         ID = GetComponent<Player>().GetPlayerId();
+
         playerCanvas = canvas.GetComponent<PlayerCanvasBehavior>();
+
         grabHolder = holder.transform;
         trigger = GetComponentInChildren<GrabTrigger>();
 
@@ -90,7 +94,7 @@ public class PlayerInteraction : MonoBehaviour
     public void CanChop(bool state, GameObject obj)
     {
         //print("canChop" + state + obj);
-        playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
+        playerCanvas.ShowXButtonOnCanvas(state, canGrab); //shows X hint button
         canChop = state;
         if (state)
         {
@@ -101,7 +105,7 @@ public class PlayerInteraction : MonoBehaviour
     public void CanBuild(bool state, GameObject obj)
     {
         //print("canBuild" + state + obj);
-        if (!canChop) playerCanvas.ShowXButtonOnCanvas(state); //shows A hint button
+        if (!canChop) playerCanvas.ShowXButtonOnCanvas(state, canGrab); //shows A hint button
         canBuild = state;
         if (state)
         {
@@ -201,8 +205,7 @@ public class PlayerInteraction : MonoBehaviour
             Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
             buildable.Build();            
             objectToInteract = null;
-            playerCanvas.ShowXButtonOnCanvas(false);
-
+            //playerCanvas.ShowXButtonOnCanvas(false, false);
         }
     }
 }

@@ -9,11 +9,13 @@ public class PlayerCanvasBehavior : MonoBehaviour
     public GameObject XButton;
     Vector3 targetPos;    
     public float damping = 10f;
+    //Vector3 XButtonPosition;
 
     private void Start()
     {
         AButton.SetActive(false);
         XButton.SetActive(false);
+        //XButtonPosition = XButton.GetComponent<RectTransform>().localPosition;
     }
     
     private void Update()
@@ -28,8 +30,17 @@ public class PlayerCanvasBehavior : MonoBehaviour
         AButton.SetActive(state);
     }
 
-    public void ShowXButtonOnCanvas(bool state)
-    {
+    public void ShowXButtonOnCanvas(bool state, bool canGrab)
+    {        
         XButton.SetActive(state);
+        //XButtonPosition = XButton.GetComponent<RectTransform>().localPosition;
+        if (canGrab)
+        {
+            XButton.GetComponent<RectTransform>().localPosition = new Vector3(0, 180, 0); //si lo pongo como variable justo antes no funciona :D
+        }
+        else
+        {
+            XButton.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        }
     }
 }
