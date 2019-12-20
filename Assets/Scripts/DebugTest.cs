@@ -8,7 +8,7 @@ public class DebugTest : MonoBehaviour
     public GameObject hoguera;
     public GameObject player1;
     public GameObject player2;
-    public GameObject colliders;
+    //public GameObject colliders;
     public GameObject rotationPivot;    
         
     [SerializeField] private protected enum Items {ReplantarArboles, ConstruirTodo, RomperTodo};    
@@ -45,7 +45,7 @@ public class DebugTest : MonoBehaviour
     {
         if (!m_hogueraSeExtingue) { m_hogueraScript.extinguishFrequency = 0; }
         else { m_hogueraScript.extinguishFrequency = m_frecuenciaDeExtincion; }
-        colliders.SetActive(!m_sinColliders);        
+        //colliders.SetActive(!m_sinColliders);        
     }
 
     void ReavivarHoguera()

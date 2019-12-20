@@ -23,14 +23,17 @@ public class AudioManager : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         
-		if (instance == null)
-			instance = this;
-		else {
-			Destroy (gameObject);
-			return;
-		}
-
-		DontDestroyOnLoad (gameObject);
+		// Create the singleton
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
 
 		foreach (Sound s in sounds) 
 		{
