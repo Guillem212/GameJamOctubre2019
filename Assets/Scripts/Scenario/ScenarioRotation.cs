@@ -51,12 +51,6 @@ public class ScenarioRotation : MonoBehaviour
         rc = GameObject.Find("RightC");
         lc = GameObject.Find("LeftC");
         actual = GameObject.Find("Actual");*/
-
-        foreach (GameObject i in objectsToRotate)
-            {                                
-                i.transform.LookAt(Camera.main.transform.position);      
-                i.transform.Rotate(0,180,0);  
-            }
     }
 
     // Update is called once per frame
@@ -67,7 +61,16 @@ public class ScenarioRotation : MonoBehaviour
         rc.GetComponent<Text>().text = "RC " + rightCounter;
         lc.GetComponent<Text>().text = "LC " + leftCounter;
         actual.GetComponent<Text>().text = "ACTUAl " + requestedRotation;*/
-        //DEBUG                        
+        //DEBUG                 
+
+        Camera camera = Camera.main;
+        foreach(GameObject obj in objectsToRotate){
+            Vector3 v = camera.transform.position - obj.transform.position;
+            v.x = v.z = 0.0f;
+            obj.transform.LookAt( camera.transform.position - v ); 
+            //obj.transform.Rotate(0,180,0);
+            obj.transform.rotation =(camera.transform.rotation);
+        }
 
         leftArrow.SetActive(leftCounter > 0);
         rightArrow.SetActive(rightCounter > 0);
@@ -249,7 +252,7 @@ public class ScenarioRotation : MonoBehaviour
         anim.SetBool("IsMoving", true);
         yield return new WaitUntil(() => isMoving == false); //se llama a false cuando termina el animador
         //turn all canvas after rotation
-        foreach (GameObject i in objectsToRotate)
+        /*foreach (GameObject i in objectsToRotate)
             {                                
                 i.transform.LookAt(Camera.main.transform.position);
                 i.transform.Rotate(0,180,0);
@@ -257,7 +260,7 @@ public class ScenarioRotation : MonoBehaviour
 
                 //Quaternion rotation  = Quaternion.LookRotation(relativePos, Vector3.up);
                 //transform.rotation = rotation;
-            }
+            }*/
         
         yield return new WaitForEndOfFrame();                
 
