@@ -65,6 +65,7 @@ namespace GameJamOctubre.Inputs
                 right.Normalize();
 
                 desiredMoveDirection = -forward * inputs.GetMovementAxis(ID).y + right * inputs.GetMovementAxis(ID).x;
+                desiredMoveDirection.Normalize();
 
                 m_MoveDirection = desiredMoveDirection;
                 if(!m_PlayerInteraction.interacting)

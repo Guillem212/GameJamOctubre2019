@@ -9,7 +9,7 @@ public class DebugTest : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject colliders;
-    public GameObject rotationPivot;
+    public GameObject rotationPivot;    
         
     [SerializeField] private protected enum Items {ReplantarArboles, ConstruirTodo, RomperTodo};    
     [SerializeField] bool m_hogueraSeExtingue = true;
@@ -18,14 +18,20 @@ public class DebugTest : MonoBehaviour
     [SerializeField] float m_frecuenciaDeExtincion;
     [SerializeField] bool m_sinColliders = false;
     [SerializeField] bool m_modoUnJugador = false;    
+    [SerializeField] bool m_todoConstruido = false;    
 
     Bonfire m_hogueraScript;
-    ScenarioRotation m_scenarioRotation;
-    //Sun m_solScript;
-
-    // Start is called before the first frame update
-    void Start()
+    ScenarioRotation m_scenarioRotation;    
+   
+    void Awake()
     {
+        if (m_todoConstruido)
+        {
+            foreach (GameObject ramp in GameObject.FindGameObjectsWithTag("Buildable"))
+            {
+                ramp.GetComponent<Buildable>().enabled = false;
+            }
+        }
         m_scenarioRotation = rotationPivot.GetComponent<ScenarioRotation>();
         m_hogueraScript = hoguera.GetComponent<Bonfire>();
         m_frecuenciaDeExtincion = m_hogueraScript.extinguishFrequency;
