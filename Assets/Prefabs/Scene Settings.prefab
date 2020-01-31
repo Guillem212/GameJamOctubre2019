@@ -64,5 +64,4 @@ MonoBehaviour:
   m_Profile: {fileID: 11400000, guid: 04482c324c809a4419da7c33c14bd44c, type: 2}
   m_StaticLightingSkyUniqueID: 2
   m_SkySettings: {fileID: 0}
-  m_SkySettingsFromProfile: {fileID: -8814482156988747664, guid: 04482c324c809a4419da7c33c14bd44c,
-    type: 2}
+  m_SkySettingsFromProfile: {fileID: 0}
