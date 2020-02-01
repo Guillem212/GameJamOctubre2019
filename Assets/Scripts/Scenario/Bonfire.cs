@@ -27,6 +27,8 @@ public class Bonfire : MonoBehaviour
     {
         filler.enabled = background.enabled = false;
         currentTime = -1;
+
+        audioManager = GameObject.Find("SoundManager").GetComponent<AudioManager>();
     }
 
     void Update()

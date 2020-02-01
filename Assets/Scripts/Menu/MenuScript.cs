@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+
+    private Canvas canvas;
+
+    private void Start() {
+        CameraRotation.inMenu = true;
+        canvas = GetComponent<Canvas>();
+    }
     public void onExit(){
         Application.Quit();
     }
 
     public void onStart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        CameraRotation.inMenu = false;
+        canvas.enabled = false;
     }
 }

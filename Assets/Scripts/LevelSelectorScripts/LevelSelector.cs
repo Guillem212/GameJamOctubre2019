@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ParticleSystemJobs;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -8,14 +9,14 @@ public class LevelSelector : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    public ParticleSystem particleSystem;
+
     private GameObject levelSelected;
     private int indexLevelSelected;
 
     private float timer;
 
     private static LevelManager levelInstance;
-
-    public bool reachedDest = false;
 
     private void Start() {
         levels = GameObject.FindGameObjectsWithTag("levelPoint");
@@ -30,11 +31,15 @@ public class LevelSelector : MonoBehaviour
         timer = 0;
 
         levelInstance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
+
+        particleSystem.Stop();
     }
 
     private void Update() {
-        changeDestination();
-        reachedDestination();
+        if(!CameraRotation.inMenu){
+            changeDestination();
+            reachedDestination();
+        }
     }
 
     private void changeDestination(){
@@ -49,16 +54,12 @@ public class LevelSelector : MonoBehaviour
                 indexLevelSelected++;
                 levelSelected = levels[indexLevelSelected];
                 activateCanvas(levelSelected);
-
-                levelInstance.loadLevel(1, this);
             }//Seleccion de nivel hacia la izquierda
             else if(axis < 0 && indexLevelSelected > 0){
                 activateCanvas(levelSelected);
                 indexLevelSelected--;
                 levelSelected = levels[indexLevelSelected];
                 activateCanvas(levelSelected);
-
-                levelInstance.loadLevel(1, this);
             }
 
         }
@@ -76,12 +77,18 @@ public class LevelSelector : MonoBehaviour
     private void reachedDestination(){
         if(agent.remainingDistance <= 0){
             //Ha llegado a su destino.
-            reachedDest = false;
+            if(particleSystem.isPlaying){
+                particleSystem.Stop();
+            }
             if(Input.GetKey(KeyCode.Space)){
-                print("HOLA");
-                reachedDest = true;
+                levelInstance.loadScene(1);
             }
 
+        }
+        else{
+            if(!particleSystem.isPlaying){
+                particleSystem.Play();
+            }
         }
     }
 
