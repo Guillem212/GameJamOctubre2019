@@ -40,6 +40,7 @@ public class Buildable : MonoBehaviour
 
     public void Build()
     {
+        print("Artes de Ashina: Pingo ascendente");
         currentWood++;
         text.text = currentWood + "/" + neededWood;
         if (currentWood >= neededWood)

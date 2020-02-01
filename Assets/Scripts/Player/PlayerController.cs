@@ -24,7 +24,7 @@ namespace GameJamOctubre.Inputs
         [SerializeField] float m_MoveSpeed = 1f;
         [SerializeField] float m_GrabMoveSpeed = 0.7f;
         [SerializeField] float m_RotateSpeed = 10f;
-        [SerializeField] float m_GravityFactor = 2f;
+        public float m_GravityFactor = 2f;
 
         Animator anim;
 
