@@ -8,6 +8,8 @@ TagManager:
   - Tree
   - Buildable
   - Sapling
+  - levelPoint
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - 
   - Culling
-  - 
+  - PostProcessing
   - 
   - 
   - 

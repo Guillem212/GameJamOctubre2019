@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
         canvasAnim.SetTrigger("StartLoading");
         StartCoroutine(StartLoading(index));
     }
-
+    
     public void resetScene(){
         canvasAnim.SetTrigger("StartLoading");
         StartCoroutine(StartLoading(SceneManager.GetActiveScene().buildIndex));
@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         while(!asyncLoad.isDone){
             yield return null;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         canvasAnim.SetTrigger("Load");
     }
 
@@ -44,6 +44,23 @@ public class LevelManager : MonoBehaviour
         asyncLoad = SceneManager.LoadSceneAsync(index);
         StartCoroutine(LoadAsyncScene());
 
+    }
+
+    IEnumerator startLoadingLevel(int index, LevelSelector ls){
+        asyncLoad = SceneManager.LoadSceneAsync(index);
+        asyncLoad.allowSceneActivation = false;
+
+        yield return new WaitUntil(() => (ls.reachedDest == true && asyncLoad.progress >= 0.9f));
+        asyncLoad.allowSceneActivation = true;
+    }
+
+    public void loadLevel(int index, LevelSelector ls){
+        StartCoroutine(startLoadingLevel(index, ls));
+    }
+
+    public void startLevel(){
+        canvasAnim.SetTrigger("StartLoading");
+        //StartCoroutine(LoadAsyncScene());
     }
 
     public void onExit(){

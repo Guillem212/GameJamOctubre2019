@@ -256,8 +256,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2171448900112033147}
   - component: {fileID: 2171448900112033144}
-  - component: {fileID: 2171448900112033145}
-  - component: {fileID: 2171448900112033146}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -287,8 +285,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2171448900112033148}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.44483572, b: 0, a: 1}
   m_Intensity: 4000
   m_Range: 60
@@ -339,107 +338,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &2171448900112033145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2171448900112033148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
-  m_Version: 5
-  directionalIntensity: 3.1415927
-  punctualIntensity: 600
-  areaIntensity: 200
-  enableSpotReflector: 0
-  luxAtDistance: 1
-  m_InnerSpotPercent: 0
-  lightDimmer: 1
-  m_VolumetricDimmer: 1
-  lightUnit: 1
-  fadeDistance: 10000
-  affectDiffuse: 1
-  affectSpecular: 1
-  nonLightmappedOnly: 0
-  lightTypeExtent: 0
-  m_SpotLightShape: 0
-  shapeWidth: 0.5
-  shapeHeight: 0.5
-  aspectRatio: 1
-  shapeRadius: 0
-  maxSmoothness: 0.99
-  applyRangeAttenuation: 1
-  useOldInspector: 0
-  useVolumetric: 1
-  featuresFoldout: 1
-  showAdditionalSettings: 0
-  displayLightIntensity: 4000
-  displayAreaLightEmissiveMesh: 0
-  areaLightCookie: {fileID: 0}
-  areaLightShadowCone: 120
-  useScreenSpaceShadows: 0
-  evsmExponent: 15
-  evsmLightLeakBias: 0
-  evsmVarianceBias: 0.00001
-  evsmBlurPasses: 0
-  lightLayers: 1
-  lightlayersMask: 1
-  linkShadowLayers: 1
-  shadowNearPlane: 0.1
-  shadowSoftness: 0.5
-  blockerSampleCount: 24
-  filterSampleCount: 16
-  minFilterSize: 0.00001
-  kernelSize: 5
-  lightAngle: 1
-  maxDepthBias: 0.001
---- !u!114 &2171448900112033146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2171448900112033148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c2871f720b2af4e9210febdac74517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  shadowResolution: 512
-  shadowDimmer: 1
-  volumetricShadowDimmer: 1
-  shadowFadeDistance: 10000
-  contactShadows: 0
-  shadowTint: {r: 0, g: 0, b: 0, a: 1}
-  viewBiasMin: 0.2
-  viewBiasMax: 100
-  viewBiasScale: 1
-  normalBiasMin: 0.5
-  normalBiasMax: 0.5
-  normalBiasScale: 1
-  sampleBiasScale: 0
-  edgeLeakFixup: 0
-  edgeToleranceNormal: 1
-  edgeTolerance: 1
-  shadowCascadeCount: 4
-  shadowCascadeRatios:
-  - 0.05
-  - 0.2
-  - 0.3
-  shadowCascadeBorders:
-  - 0.2
-  - 0.2
-  - 0.2
-  - 0.2
-  shadowAlgorithm: 0
-  shadowVariant: 0
-  shadowPrecision: 0
 --- !u!1 &4330574486059088971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5163,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5358,10 +5257,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4476055000336912335}
     m_Modifications:
-    - target: {fileID: 5757636334707957047, guid: b5efe2427e999c4469838959347db061,
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
         type: 3}
-      propertyPath: m_Name
-      value: SmokeBlack
+      propertyPath: lengthInSec
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: SizeModule.curve.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.23632812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 13493
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 11951
       objectReference: {fileID: 0}
     - target: {fileID: 5757636334707957044, guid: b5efe2427e999c4469838959347db061,
         type: 3}
@@ -5428,45 +5362,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ca0f1aec77bb8d2498cfc844dd584780, type: 2}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
+    - target: {fileID: 5757636334707957047, guid: b5efe2427e999c4469838959347db061,
         type: 3}
-      propertyPath: lengthInSec
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: SizeModule.curve.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
-      value: 0.23632812
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.ctime0
-      value: 13493
-      objectReference: {fileID: 0}
-    - target: {fileID: 5757636334707957042, guid: b5efe2427e999c4469838959347db061,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime0
-      value: 11951
+      propertyPath: m_Name
+      value: SmokeBlack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5efe2427e999c4469838959347db061, type: 3}
@@ -5477,11 +5376,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2319464257594203546}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: bd6b61594f5721e4da6eb57a202c7f6b,
-        type: 3}
-      propertyPath: m_Name
-      value: fire1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bd6b61594f5721e4da6eb57a202c7f6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5557,6 +5451,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e79a97df638be14988a4580f2b2f88b, type: 2}
+    - target: {fileID: -927199367670048503, guid: bd6b61594f5721e4da6eb57a202c7f6b,
+        type: 3}
+      propertyPath: m_Name
+      value: fire1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6b61594f5721e4da6eb57a202c7f6b, type: 3}
 --- !u!4 &6582078526562136509 stripped
@@ -5578,11 +5477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2319464257594203546}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: bd6b61594f5721e4da6eb57a202c7f6b,
-        type: 3}
-      propertyPath: m_Name
-      value: fire2
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bd6b61594f5721e4da6eb57a202c7f6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5658,6 +5552,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e79a97df638be14988a4580f2b2f88b, type: 2}
+    - target: {fileID: -927199367670048503, guid: bd6b61594f5721e4da6eb57a202c7f6b,
+        type: 3}
+      propertyPath: m_Name
+      value: fire2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6b61594f5721e4da6eb57a202c7f6b, type: 3}
 --- !u!4 &6582078526586533509 stripped
@@ -5679,11 +5578,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7823184894599496465}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 8c6e8ab45bc1a8843add2e811b5a5d21,
-        type: 3}
-      propertyPath: m_Name
-      value: Bonfire sola
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8c6e8ab45bc1a8843add2e811b5a5d21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5753,6 +5647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8c6e8ab45bc1a8843add2e811b5a5d21,
+        type: 3}
+      propertyPath: m_Name
+      value: Bonfire sola
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6e8ab45bc1a8843add2e811b5a5d21, type: 3}
