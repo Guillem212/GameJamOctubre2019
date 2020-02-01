@@ -203,7 +203,8 @@ public class PlayerInteraction : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Build");
 
             Buildable buildable = objectToInteract.gameObject.GetComponent<Buildable>();
-            buildable.Build();            
+            buildable.Build();
+            print(objectToInteract.name);
             objectToInteract = null;
             //playerCanvas.ShowXButtonOnCanvas(false, false);
         }
