@@ -23,7 +23,7 @@ namespace GameJamOctubre.Inputs
         [Header("Control Variable")]
         [SerializeField] float m_MoveSpeed = 1f;
         [SerializeField] float m_GrabMoveSpeed = 0.7f;
-        [SerializeField] float m_RotateSpeed = 10f;
+        [SerializeField] float m_RotateSpeed = 25f;
         public float m_GravityFactor = 2f;
 
         Animator anim;
@@ -46,7 +46,7 @@ namespace GameJamOctubre.Inputs
         }
 
 
-        void Update() 
+        void LateUpdate() 
         {            
             //print(m_PlayerController.isGrounded);
             m_MoveDirection = new Vector3();
@@ -69,7 +69,7 @@ namespace GameJamOctubre.Inputs
 
                 m_MoveDirection = desiredMoveDirection;
                 if(!m_PlayerInteraction.interacting)
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), 0.4f); 
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), Time.deltaTime * m_RotateSpeed); 
 
                 anim.SetBool("moving", true);
 
