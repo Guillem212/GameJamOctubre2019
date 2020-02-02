@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: f9b6e365a47ff52458afd5c2211b5898
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 1989289236423521904
+    second: Default Take
+  - first:
+      74: -8094199436779951569
+    second: Chop_01
+  - first:
+      74: 3692998474985636513
+    second: Test_001
+  - first:
+      74: -2050235716872847644
+    second: Chop_02
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Chop_01
+      takeName: Chop_01
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Chop_02
+      takeName: Chop_02
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: PlayerModel(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder
+      parentName: PlayerModel(Clone)
+      position: {x: 0.0000009536742, y: 0.0000007227063, z: -0.00000071525585}
+      rotation: {x: 0.00000006333791, y: 0.000000028246173, z: -0.000000057496283,
+        w: 1}
+      scale: {x: 0.9999998, y: 1, z: 1.0000001}
+    - name: Raccoon_003
+      parentName: PlayerModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Raccoon_002
+      parentName: PlayerModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Raccoon_001
+      parentName: PlayerModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Raccoon_004
+      parentName: PlayerModel(Clone)
+      position: {x: 0.0038788132, y: -0.18237445, z: -0.07679081}
+      rotation: {x: -0.000000039814044, y: -5.9174e-10, z: 6.4028427e-10, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Raccoon
+      parentName: PlayerModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: PlayerModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Torso_1
+      parentName: Armature
+      position: {x: -0.05457872, y: -0.016552474, z: 0.021885157}
+      rotation: {x: 0.707089, y: 0.707089, z: 0.0050166543, w: -0.0050165947}
+      scale: {x: 1.0000014, y: 1.0000006, z: 1.0000015}
+    - name: Tail_1
+      parentName: Torso_1
+      position: {x: -0.4596061, y: 0.000000032643854, z: -1.063163}
+      rotation: {x: -0.00000029802317, y: -0.52652043, z: -0.00000014901158, w: 0.85016257}
+      scale: {x: 1.000002, y: 1.0000021, z: 1.0000001}
+    - name: Tail_2
+      parentName: Tail_1
+      position: {x: -0.6263126, y: 0.000000047414545, z: -0.000000026025166}
+      rotation: {x: 0.000025816358, y: -0.03770279, z: -0.011230446, w: 0.9992259}
+      scale: {x: 1.0000013, y: 1.0000018, z: 1.0000006}
+    - name: L_Hand
+      parentName: Torso_1
+      position: {x: -1.2264293, y: -1.4247651, z: -0.008998485}
+      rotation: {x: -0.7087866, y: -0.0043660994, z: -0.00031158325, w: 0.70540947}
+      scale: {x: 1.0000018, y: 1.0000001, z: 1.0000024}
+    - name: R_Hand
+      parentName: Torso_1
+      position: {x: -1.2194209, y: 1.374788, z: -0.06689773}
+      rotation: {x: 0.57357466, y: 0.411746, z: -0.4693157, w: 0.530302}
+      scale: {x: 1.000002, y: 1.0000044, z: 1.0000027}
+    - name: Axe
+      parentName: R_Hand
+      position: {x: -1.0406215, y: 0.021294527, z: -0.032510523}
+      rotation: {x: -0.7177855, y: -0.00048793235, z: 0.00038439812, w: 0.6962641}
+      scale: {x: 0.05000007, y: 0.050000023, z: 0.05000003}
+    - name: Torso_2
+      parentName: Torso_1
+      position: {x: -0.9611974, y: 0.00000007051295, z: -9.31323e-10}
+      rotation: {x: 0.000000021072895, y: -0.007094516, z: -0, w: 0.9999749}
+      scale: {x: 1.0000013, y: 1.0000019, z: 1.0000012}
+    - name: Head
+      parentName: Torso_2
+      position: {x: -1.0048006, y: -0.0036863785, z: 0.025482869}
+      rotation: {x: -0.00023631754, y: 0.005775846, z: 0.001279185, w: 0.9999825}
+      scale: {x: 1.0000002, y: 1.0000011, z: 1.0000002}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

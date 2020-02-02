@@ -39,7 +39,7 @@ public class Tree : MonoBehaviour
         grownAnim.SetBool("Loaded", true);
     }
 
-    // Update is called once per frame
+    /*// Update is called once per frame
     void Update()
     {
         if (!isGrown)
@@ -56,17 +56,17 @@ public class Tree : MonoBehaviour
                 Grow();                
             }
         }
-    }
+    }*/
 
     public void Fall()
-    {
+    {/*
         //activa el sapling
         sapling.SetActive(true);
         //desactiva el arbol
         grown.SetActive(false);
 
         respawnTime = Random.Range(minRespawnTime, maxRespawnTime);
-        halfRespawnTime = respawnTime / 2;
+        halfRespawnTime = respawnTime / 2;*/
         isGrown = false;
     }
 
