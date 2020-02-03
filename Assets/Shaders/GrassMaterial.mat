@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GrassMaterial
-  m_Shader: {fileID: 4800000, guid: 8555caae21bbd05438e6d8a1dd0d0f84, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _DOUBLESIDED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,6 +32,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture2D_D321AF19:
         m_Texture: {fileID: 2800000, guid: ada0d7fbdfb125049a23cc43db60bc67, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo1:
+        m_Texture: {fileID: 2800000, guid: f9fb1541108ca144a82877c2a7a094ad, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo2:
+        m_Texture: {fileID: 2800000, guid: 6a05f6f1b7dee464d9f372ec8cfb02fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo3:
+        m_Texture: {fileID: 2800000, guid: ffafb8432f7190748a56b6833e1f2bb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -110,6 +122,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 8cdfe7e6b88bc664285665178b7c62f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal1:
+        m_Texture: {fileID: 2800000, guid: 42c4a16be0821414ab987369609bd95a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal2:
+        m_Texture: {fileID: 2800000, guid: 889cc63146a9add4cb0385e14251441d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal3:
+        m_Texture: {fileID: 2800000, guid: 3b8ddc994b660934580c018de47ce97c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -124,6 +152,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness1:
+        m_Texture: {fileID: 2800000, guid: b793a8b4b7900934cb6c8f96ee4d37ab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness2:
+        m_Texture: {fileID: 2800000, guid: 615afa1c7e4ecca4db4b4b6d370b0b1b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness3:
+        m_Texture: {fileID: 2800000, guid: f1e50f246d9c3a84e8e3d31120c56748, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -169,13 +209,13 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
-    - _BendRotationRandom: 0.38
-    - _BladeCurve: 3.14
-    - _BladeForward: 0.07
-    - _BladeHeight: 1
-    - _BladeHeightRandom: 2
-    - _BladeWidth: 0.06
-    - _BladeWidthRandom: 0.5
+    - _BendRotationRandom: 0
+    - _BladeCurve: 4
+    - _BladeForward: 0.1
+    - _BladeHeight: 0.3
+    - _BladeHeightRandom: 0.1
+    - _BladeWidth: 0.1
+    - _BladeWidthRandom: 0.1
     - _BlendMode: 0
     - _BumpScale: 1
     - _CoatMask: 0
@@ -221,6 +261,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _GrassHeight: 0.25
+    - _GrassWidth: 0.25
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
@@ -232,6 +274,9 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InvTilingScale: 1
+    - _Invert1: 0
+    - _Invert2: 0
+    - _Invert3: 0
     - _Ior: 1
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
@@ -252,6 +297,8 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
+    - _RootTintSpread: 0.8
+    - _RootTintStart: 0.2
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -274,12 +321,12 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _TessellationUniform: 5
+    - _TessellationUniform: 10
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _ThicknessMultiplier: 1
-    - _TranslucentGain: 0
+    - _TranslucentGain: 0.41
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -293,7 +340,12 @@ Material:
     - _UVSec: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _WindStrength: 0.2
+    - _Weight1: 0.47
+    - _Weight2: 0.5
+    - _Weight3: 0.5
+    - _WindSpeed: 100
+    - _WindStength: 0.05
+    - _WindStrength: 0.1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
     - _ZTestModeDistortion: 8
@@ -303,7 +355,7 @@ Material:
     - Vector2_9963E6B4: {r: 5, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _BottomColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BottomColor: {r: 0.15294118, g: 0.2627451, b: 0.003921569, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -312,9 +364,14 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _RootTint: {r: 1, g: 1, b: 1, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _TopColor: {r: 0.8000696, g: 1, b: 0, a: 1}
+    - _Tint1: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint2: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint3: {r: 1, g: 1, b: 1, a: 0}
+    - _TopColor: {r: 0.7960785, g: 0.8470589, b: 0.28235295, a: 1}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}

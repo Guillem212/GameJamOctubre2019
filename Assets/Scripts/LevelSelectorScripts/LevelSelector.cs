@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.ParticleSystemJobs;
+using UnityEngine.UIElements;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -24,12 +25,10 @@ public class LevelSelector : MonoBehaviour
             level.GetComponentInChildren<Canvas>().enabled = false;
         }
 
-        levelSelected = levels[0];
         indexLevelSelected = 0;
+        levelSelected = levels[indexLevelSelected];
         levelSelected.GetComponentInChildren<Canvas>().enabled = true;
-
         timer = 0;
-
         levelInstance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
 
         particleSystem.Stop();
@@ -77,18 +76,19 @@ public class LevelSelector : MonoBehaviour
     private void reachedDestination(){
         if(agent.remainingDistance <= 0){
             //Ha llegado a su destino.
-            if(particleSystem.isPlaying){
-                particleSystem.Stop();
-            }
-            if(Input.GetKey(KeyCode.Space)){
-                levelInstance.loadScene(1);
-            }
-
+            if(particleSystem.isPlaying) particleSystem.Stop();
+            
+            if(Input.GetButtonDown("Submit")){
+                /*GameObject[] objs = levelSelected.GetComponentsInChildren<getGameObjectScript>();
+                objs[0] = levelSelected.transform.GetChild(1).gameObject;
+                objs[1] = levelSelected.transform.GetChild(2).gameObject;
+                foreach(GameObject o in objs){
+                    o.SetActive(true);
+                }*/
+            } //levelInstance.loadScene(1);
         }
         else{
-            if(!particleSystem.isPlaying){
-                particleSystem.Play();
-            }
+            if(!particleSystem.isPlaying) particleSystem.Play();   
         }
     }
 

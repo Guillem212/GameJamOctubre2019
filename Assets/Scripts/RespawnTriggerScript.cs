@@ -12,7 +12,8 @@ public class RespawnTriggerScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            if(playerScript[0] != null){
+            other.gameObject.GetComponent<Player>().GoToSpawn();
+            /*if(playerScript[0] != null){
                 playerScript[1] = other.gameObject.GetComponent<Player>();
                 playerScript[1].GoToSpawn();
                 playerScript[1] = null;
@@ -21,7 +22,7 @@ public class RespawnTriggerScript : MonoBehaviour
                 playerScript[0] = other.gameObject.GetComponent<Player>();
                 playerScript[0].GoToSpawn();
                 playerScript[0] = null;
-            }
+            }*/
         }
     }
 }

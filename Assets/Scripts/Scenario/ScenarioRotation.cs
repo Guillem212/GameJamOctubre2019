@@ -11,22 +11,19 @@ public class ScenarioRotation : MonoBehaviour
     PlayerInput inputs;
     Animator anim;
     bool isMoving = false;
-    public GameObject parentable;
 
     [Header("Control Variable")]
     public bool canInteract = true;
-    public float canvasTurnSpeed = 20f;
+
     public float cooldown = 3f;
 
     enum Turn { Player1Right, Player2Right, Player1Left, Player2Left, None};
     Turn requestedRotation = Turn.None;
 
     float rightCounter, leftCounter = 0f;
-    float angle = 0f;
     
     public GameObject leftArrow;
     public GameObject rightArrow;
-    Animator arrowAnim;
 
     [HideInInspector] public bool onePlayerMode;
 
@@ -267,7 +264,7 @@ public class ScenarioRotation : MonoBehaviour
         anim.SetBool("IsMoving", false);
         canInteract = true;        
     }
-
+/*
     public void PlugElements()
     {
         //set parent
@@ -281,5 +278,5 @@ public class ScenarioRotation : MonoBehaviour
         //parentable.transform.SetParent(null);
         Camera.main.transform.SetParent(null);
         isMoving = false; //finaliza corrutina
-    }
+    }*/
 }
