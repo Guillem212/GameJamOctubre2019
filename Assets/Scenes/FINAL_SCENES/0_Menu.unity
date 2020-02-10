@@ -609,6 +609,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7660960854343758028, guid: 26f6ab6c94a5d004697ade2401516890,
+        type: 3}
+      propertyPath: levelSelector
+      value: 
+      objectReference: {fileID: 475829538}
+    - target: {fileID: 7660960854343758028, guid: 26f6ab6c94a5d004697ade2401516890,
+        type: 3}
+      propertyPath: cameraRotation
+      value: 
+      objectReference: {fileID: 1683799369}
     - target: {fileID: 7660960854343758029, guid: 26f6ab6c94a5d004697ade2401516890,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1177,6 +1187,7 @@ MonoBehaviour:
   levels: []
   agent: {fileID: 1445802633}
   particleSystem: {fileID: 1055019278}
+  cameraRotation: {fileID: 1683799369}
 --- !u!4 &475829540
 Transform:
   m_ObjectHideFlags: 0
@@ -2147,7 +2158,7 @@ PrefabInstance:
     - target: {fileID: 7347042977959450093, guid: a45cc02f70b290a4a846a00edb428a87,
         type: 3}
       propertyPath: minSize
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7347042977959450094, guid: a45cc02f70b290a4a846a00edb428a87,
         type: 3}

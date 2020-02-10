@@ -11,8 +11,13 @@ public class PlayerCanvasBehavior : MonoBehaviour
     public float damping = 10f;
     //Vector3 XButtonPosition;
 
+    private Canvas canvas;
+
     private void Start()
     {
+        canvas = GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+
         AButton.SetActive(false);
         XButton.SetActive(false);
         //XButtonPosition = XButton.GetComponent<RectTransform>().localPosition;
@@ -20,9 +25,9 @@ public class PlayerCanvasBehavior : MonoBehaviour
     
     private void Update()
     {        
-        /*targetPos = Camera.main.transform.position;
-        Vector3 targetPostition = new Vector3(targetPos.x, transform.position.y, transform.position.z);
-        this.transform.LookAt(targetPostition);*/
+        targetPos = Camera.main.transform.position;
+        //Vector3 targetPostition = new Vector3(targetPos.x, transform.position.y, transform.position.z);
+        transform.LookAt(targetPos);
     }
 
     public void ShowAButtonOnCanvas(bool state)

@@ -11,8 +11,10 @@ namespace GameJamOctubre.Inputs
         public CharacterController m_PlayerController;
         public PlayerInteraction m_PlayerInteraction;
         [SerializeField] Vector3 m_MoveDirection;        
-        public GameObject m_PlayerModel; 
-        PlayerInput inputs;
+        public GameObject m_PlayerModel;
+
+        private Input_System.Inputs_Sys inputs;
+
         string ID;
         public float radius = 10f;
 
@@ -37,10 +39,9 @@ namespace GameJamOctubre.Inputs
         void Start()
         {
             anim = GetComponentInChildren<Animator>();
-            ID = this.GetComponent<Player>().GetPlayerId();
             m_PlayerController = GetComponent<CharacterController>();
             m_PlayerInteraction = GetComponent<PlayerInteraction>();
-            inputs = new PlayerInput();
+            inputs = GetComponent<Input_System.Inputs_Sys>();
 
             ps = GetComponentInChildren<ParticleSystem>();
         }
@@ -50,7 +51,7 @@ namespace GameJamOctubre.Inputs
         {            
             //print(m_PlayerController.isGrounded);
             m_MoveDirection = new Vector3();
-            if (inputs.GetMovementAxis(ID) != Vector2.zero) //if there is some move
+            if (inputs.moveAxis != Vector2.zero) //if there is some move
             {
 
                 Camera camera = Camera.main;
@@ -64,7 +65,7 @@ namespace GameJamOctubre.Inputs
                 forward.Normalize();
                 right.Normalize();
 
-                desiredMoveDirection = -forward * inputs.GetMovementAxis(ID).y + right * inputs.GetMovementAxis(ID).x;
+                desiredMoveDirection = forward * inputs.moveAxis.y + right * inputs.moveAxis.x;
                 desiredMoveDirection.Normalize();
 
                 m_MoveDirection = desiredMoveDirection;
@@ -97,7 +98,7 @@ namespace GameJamOctubre.Inputs
 
         /*private void RotatePlayerModel()
         {
-            Vector3 direction = new Vector3(inputs.GetMovementAxis(ID).x, 0f, 0f) + new Vector3(0f, 0f, -inputs.GetMovementAxis(ID).y);
+            Vector3 direction = new Vector3(inputs.moveAxis.x, 0f, 0f) + new Vector3(0f, 0f, -inputs.moveAxis.y);
             //print(direction);            
             Vector3 desiredPosition = new Vector3(m_MoveDirection.x, 0f, m_MoveDirection.z); 
             Quaternion newRotation = Quaternion.LookRotation(direction); 

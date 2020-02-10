@@ -20,7 +20,7 @@ public class DebugTest : MonoBehaviour
     [SerializeField] bool m_modoUnJugador = false;    
     [SerializeField] bool m_todoConstruido = false;    
 
-    Bonfire m_hogueraScript;
+    GameJamOctubre.Input_System.Bonfire m_hogueraScript;
     ScenarioRotation m_scenarioRotation;    
    
     void Awake()
@@ -33,7 +33,7 @@ public class DebugTest : MonoBehaviour
             }
         }
         m_scenarioRotation = rotationPivot.GetComponent<ScenarioRotation>();
-        m_hogueraScript = hoguera.GetComponent<Bonfire>();
+        m_hogueraScript = hoguera.GetComponent<GameJamOctubre.Input_System.Bonfire>();
         m_frecuenciaDeExtincion = m_hogueraScript.extinguishFrequency;
 
         player1.SetActive(!m_modoUnJugador);

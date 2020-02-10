@@ -12,6 +12,8 @@ public class LevelSelector : MonoBehaviour
 
     public ParticleSystem particleSystem;
 
+    public CameraRotation cameraRotation;
+
     private GameObject levelSelected;
     private int indexLevelSelected;
 
@@ -19,7 +21,7 @@ public class LevelSelector : MonoBehaviour
 
     private static LevelManager levelInstance;
 
-    private void Start() {
+    private void OnEnable() {
         levels = GameObject.FindGameObjectsWithTag("levelPoint");
         foreach(GameObject level in levels){
             level.GetComponentInChildren<Canvas>().enabled = false;
@@ -32,13 +34,14 @@ public class LevelSelector : MonoBehaviour
         levelInstance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
 
         particleSystem.Stop();
+
+        Camera.main.GetComponent<CameraMovement>().minSize = 10;
     }
 
     private void Update() {
-        if(!CameraRotation.inMenu){
-            changeDestination();
-            reachedDestination();
-        }
+        cameraRotation.rotateSelector();
+        changeDestination();
+        reachedDestination();
     }
 
     private void changeDestination(){

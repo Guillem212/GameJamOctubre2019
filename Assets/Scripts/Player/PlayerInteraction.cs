@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GameJamOctubre.Inputs;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -26,8 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     public float canvasHeight = 2f;
     public float throwForce = 20f;
 
-    string ID;
-    PlayerInput inputs;
+    GameJamOctubre.Input_System.Inputs_Sys inputs;
     GameObject objectToGrab;
     GameObject objectToInteract;
     GrabTrigger trigger;
@@ -40,15 +38,14 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
-        inputs = new PlayerInput();
-        ID = GetComponent<Player>().GetPlayerId();
+        inputs = GetComponent<GameJamOctubre.Input_System.Inputs_Sys>();
 
         playerCanvas = canvas.GetComponent<PlayerCanvasBehavior>();
 
         grabHolder = holder.transform;
         trigger = GetComponentInChildren<GrabTrigger>();
 
-        parentableTransform = GameObject.Find("ParentableObject").transform;
+        //parentableTransform = GameObject.Find("ParentableObject").transform;
     }
 
     // Update is called once per frame
@@ -57,11 +54,11 @@ public class PlayerInteraction : MonoBehaviour
         anim.SetBool("grabbing", grabbingAnObject);
 
         playerCanvas.transform.position = this.transform.position + Vector3.up * canvasHeight;
-        if(inputs.Item(ID)) //grab
+        if(inputs.southButton) //grab
         {
             Item();
         }
-        else if (inputs.Action(ID))
+        else if (inputs.westButton)
         {
             Action();
         }
@@ -74,7 +71,7 @@ public class PlayerInteraction : MonoBehaviour
             EndInteracting();
         }
 
-        if (inputs.Cuak(ID))
+        if (inputs.northButton)
         {
             FindObjectOfType<AudioManager>().Play("Cuak");            
         }
@@ -124,11 +121,11 @@ public class PlayerInteraction : MonoBehaviour
             objectToGrab.transform.position = grabHolder.position;
             objectToGrab.transform.rotation = grabHolder.rotation;
             //robar tronco
-            if (objectToGrab.transform.parent != parentableTransform)
+            /*if (objectToGrab.transform.parent != parentableTransform)
             {
                 string other = ID == "1" ? "2" : "1";
                 GameObject.Find("Player" + other).GetComponent<PlayerInteraction>().Item();
-            }
+            }*/
             logRigidBody.useGravity = false;
             logRigidBody.isKinematic = true;
             objectToGrab.transform.SetParent(grabHolder);            

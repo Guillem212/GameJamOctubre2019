@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,14 +11,7 @@ public class GameManager : MonoBehaviour
     public static bool endOfLevel;
     private static LevelManager levelInstance;
 
-    private void LateUpdate()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-            levelInstance.resetScene();
-        if(endOfLevel == true){
-            levelInstance.loadScene(levelInstance.actualScene + ONE);
-        }
-    }
+    private PlayerInputManager manager;
 
     void Awake()
     {
@@ -35,14 +29,15 @@ public class GameManager : MonoBehaviour
 
         levelInstance = GetComponent<LevelManager>();
     }
-    
-    public static void Pause()
+
+
+    private void LateUpdate()
     {
-
-    }
-
-    public static void Resume()
-    {
-
+        //if(Input.GetKeyDown(KeyCode.R))
+        //levelInstance.resetScene();
+        if (endOfLevel == true)
+        {
+            levelInstance.loadScene(levelInstance.actualScene + ONE);
+        }
     }
 }
