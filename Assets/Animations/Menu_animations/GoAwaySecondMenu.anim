@@ -681,8 +681,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1
-    functionName: activateLevelSelector
+  - time: 0.98333335
+    functionName: activatePlayerSelector
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

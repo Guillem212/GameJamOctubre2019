@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static bool endOfLevel;
     private static LevelManager levelInstance;
 
-    private PlayerInputManager manager;
+    private List<GameObject> players;
 
     void Awake()
     {
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         levelInstance = GetComponent<LevelManager>();
+        players = new List<GameObject>();
     }
 
 

@@ -2,7 +2,7 @@
     "name": "PlayerInputs",
     "maps": [
         {
-            "name": "Player",
+            "name": "GamePad",
             "id": "c2bac5b5-e999-415b-9855-219dea031b9a",
             "actions": [
                 {
@@ -124,30 +124,54 @@
             ]
         },
         {
-            "name": "Menu",
-            "id": "48fbaa82-b0b7-458a-88f3-4e14498ab7dd",
+            "name": "KeyBoard",
+            "id": "8035b8ca-a000-4c98-97d2-e75d1c5f35d1",
             "actions": [
                 {
-                    "name": "MoveMenu",
+                    "name": "Move",
                     "type": "Value",
-                    "id": "d8abb756-d731-41f6-bbac-a2b8690c455c",
-                    "expectedControlType": "Stick",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Submit",
-                    "type": "Button",
-                    "id": "72379d8a-557a-42a6-8164-69c371b81775",
+                    "id": "6ce3fde6-4684-4e54-b8af-f3a85158c6e0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Cancel",
+                    "name": "A_Interaction",
                     "type": "Button",
-                    "id": "f399b0c9-527b-4940-a776-2c29f2912a2b",
+                    "id": "2682df16-6f71-4146-ab47-066fa1aa8f8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "X_Interaction",
+                    "type": "Button",
+                    "id": "8b4451ca-d304-4b61-aa76-aebe4dc48a75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Y_Interaction",
+                    "type": "Button",
+                    "id": "906485e2-f500-4ea4-9ae1-507e13563b58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "807b3288-6e9c-4b3c-9819-5a6331c20c01",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotateMap",
+                    "type": "Value",
+                    "id": "f8390f19-b0fd-4709-91a4-752b27bd6da7",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -155,36 +179,135 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "d13983f8-a5e7-41f9-a4f8-bebafe927f7f",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "9186d3b5-3693-4526-9aa1-7e73876b9914",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveMenu",
+                    "action": "A_Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "0caf1b2e-007e-4e24-9d80-15f548b56d89",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "a38e5ddd-c21e-48a3-9399-877235723227",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Submit",
+                    "action": "X_Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ff8c39d4-dbc3-4ee1-ba6a-3036656c96f4",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "c9d800e6-9d40-4132-99c4-af5e7df9c76b",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cancel",
+                    "action": "Y_Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbc13762-0cc2-45ef-9d82-fc9f2ff9bf61",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "712511f0-0ef1-415e-b256-3b4f018505f0",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "072d8339-6286-4616-9b1a-2f22be8d9180",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7b33a0c6-48d5-4498-a4c0-9315e1a23bee",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b2c863d0-76c8-4d87-aae9-45befef8b589",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f05eb243-0c78-44e9-aa20-d35df874d84f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "4e114fbb-8591-412f-9cd1-4fc0b52b3897",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMap",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "fd9ab82f-4102-4c9a-aa91-3b61f19e1d2f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8f15efb7-726f-4982-85bb-9ec9e088b17b",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMap",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

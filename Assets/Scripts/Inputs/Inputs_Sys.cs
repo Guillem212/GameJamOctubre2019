@@ -79,24 +79,5 @@ namespace GameJamOctubre.Input_System
         {
             rightJoystick = data.Get<Vector2>().x;
         }
-
-        //------------------------------
-        //Menu functions
-        //------------------------------
-        public void OnMoveMenu(InputValue data)
-        {
-            moveMenu = data.Get<Vector2>();
-        }
-
-        public void OnSubmit(InputValue data)
-        {
-            submitButton = data.Get<float>() != 0;
-
-        }
-
-        public void OnCancel(InputValue data)
-        {
-            denyButton = data.Get<float>() != 0;
-        }
     }
 }

@@ -602,68 +602,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7347042978913073307}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &747868925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4039165242528265756, guid: e1edb6ab171e44145918de6d28ae1bbc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1097228903}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &747868926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747868925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: 4
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Action
-      m_Type: 1
-      m_ExpectedControlType: Button
-      m_Id: 34220a87-d779-4d6f-becf-4e1297d1bcde
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 3183655722260923152, guid: a64690dce9846d94991fce8fe6fdcb26,
-    type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!114 &747868930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747868925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b20fb18e0da244faeabc4347a3e05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1097228903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,21 +668,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4039165242528265756, guid: e1edb6ab171e44145918de6d28ae1bbc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4039165242528265756, guid: e1edb6ab171e44145918de6d28ae1bbc,
-        type: 3}
-      propertyPath: m_TagString
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7302121012029419472, guid: e1edb6ab171e44145918de6d28ae1bbc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1edb6ab171e44145918de6d28ae1bbc, type: 3}
